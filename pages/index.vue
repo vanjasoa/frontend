@@ -6,7 +6,7 @@
         </h1>
         <button @click="fetchProducts">refresh data</button>
     </p>
-    <h1 class="text-xl">Login</h1>
+    <h1 class="text-xl bg-black">Login</h1>
     <button @click="onSubmit(userData)">Login</button>
     <h1>Logout</h1>
     <button @click="logout">Logout</button>
