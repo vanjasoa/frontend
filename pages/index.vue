@@ -1,24 +1,18 @@
 <template>
-    <p v-if="user" >
-        {{ user }}
-        <h1>
-            {{ product }}
-        </h1>
-        <button @click="fetchProducts">refresh data</button>
-    </p>
-    <h1 class="text-xl bg-black">Login</h1>
-    <button @click="onSubmit(userData)">Login</button>
-    <h1>Logout</h1>
-    <button @click="logout">Logout</button>
+    <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
+    <button v-if="user" @click="logout">logout</button>
+    <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" />
+    <ProjectDescriptionCard v-else />
 </template>
 
 <script setup>
+const showAuth = ref(null)
 const { getItems } = useDirectusItems();
 const { login, logout } = useDirectusAuth();
 const user = useDirectusUser();
 const product = ref({})
 
-const userData = ref({email:'teddy@mail.com',password:'123456'})
+//const userData = ref({email:'teddy@mail.com',password:'123456'})
 
 const onSubmit = async (logindata) => {
     try {
