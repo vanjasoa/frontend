@@ -1,12 +1,12 @@
 <template>
   <TopNavigationBar>
             <template #logo >
-                <img src="../public/logo.svg" />
+                <img @click="showAuth = null" src="../public/logo.svg" />
             </template>
         </TopNavigationBar>
     <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
     <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" />
-    <ProjectDescriptionCard v-else />
+    <ProjectDescriptionCard @call-to-action="showAuth = 'register'" v-else />
 </template>
 
 <script setup>
@@ -21,7 +21,7 @@ const router = useRouter();
 
 const onSubmit = async (logindata) => {
     try {
-        await login({ email: logindata.email, password: logindata.password });
+        await login({ email: logindata.email+'@mail.com', password: logindata.password });
         router.push('/welcome')
         
     } catch (e) {

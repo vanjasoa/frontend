@@ -67,7 +67,7 @@
 const props = defineProps(['showAuth'])
 const emit =  defineEmits(['connexion'])
 
-const loginForm = ref({ email: 'teddy@mail.com', password: '123456' })
+const loginForm = ref({ email: 'teddy', password: '123456' })
 
 
 </script>
