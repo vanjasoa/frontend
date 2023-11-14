@@ -806,7 +806,7 @@
     which "^3.0.1"
     ws "^8.14.2"
 
-"@nuxt/kit@3.8.1", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.1":
+"@nuxt/kit@3.8.1", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.8.1.tgz#64b3f161fdf56175af0f535c465b0c76b9730da0"
   integrity sha512-DrhG1Z85iH68QOTkgfb0HVfM2g7+CfcMWrFWMDwck9ofyM2RXQUZyfmvMedwBnui1AjjpgpLO9078yZM+RqNUg==
@@ -3685,6 +3685,13 @@ nuxi@^3.9.1:
   integrity sha512-4R4tcC2uQ5QCnHxyKoX5nZm/YUesCcQM3bZBKYU/8ZWrWjK6aPG6Q5zOQG1aLPkAotyahNsqtSiU/CrRoenEgA==
   optionalDependencies:
     fsevents "~2.3.3"
+
+nuxt-directus@5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/nuxt-directus/-/nuxt-directus-5.5.0.tgz#5b6a7da8d443c9bd3fad636ae6e3aa7fe47ee93e"
+  integrity sha512-OsKuWsf6t+8i4YCWTI2Nh0ssoZbC606s43Zt1v6iUwdlxp3LnS4+EU9E72rssGZ7boVfQ1v5crponZAqZ26zLQ==
+  dependencies:
+    "@nuxt/kit" "^3.0.0"
 
 nuxt@^3.8.1:
   version "3.8.1"
