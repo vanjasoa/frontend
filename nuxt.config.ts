@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     'nuxt-delay-hydration',
     'nuxt-svgo',
+    '@nuxt/image',
   ],
 
   directus: {
