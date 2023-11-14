@@ -1,7 +1,7 @@
 <template>
   <TopNavigationBar>
     <template #logo>
-      <NuxtImg src="/logo.png" />
+      <NuxtImg class="w-64 h-32" src="logo.png" />
     </template>
   </TopNavigationBar>
   <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
