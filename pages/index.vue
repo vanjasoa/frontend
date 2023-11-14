@@ -1,12 +1,12 @@
 <template>
   <TopNavigationBar>
     <template #logo>
-      <NuxtImg class="w-64 h-32" src="logo.png" />
+      <NuxtImg class="w-64 h-32" src="logo.png" @click="showAuth = null" />
     </template>
   </TopNavigationBar>
   <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
   <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" />
-  <ProjectDescriptionCard @call-to-action="showAuth = 'register'" v-else />
+  <ProjectDescriptionCard v-else @call-to-action="showAuth = 'register'" />
 </template>
 
 <script setup>

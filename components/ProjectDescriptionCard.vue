@@ -1,6 +1,7 @@
 <template>
-    <div class="flex flex-col items-center mx-4">
-        <svg viewBox="0 0 492 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="flex flex-col items-center mx-16 lg:w-1/2">
+        <div class="w-full lg:w-1/2">
+            <svg viewBox="0 0 492 223" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_71_900)">
                 <path d="M80.8845 72.1208L440.801 37.7952L414.66 150.697L54.7432 185.023L80.8845 72.1208Z" fill="white" />
                 <path d="M80.8845 72.1208L440.801 37.7952L414.66 150.697L54.7432 185.023L80.8845 72.1208Z" stroke="black"
@@ -40,9 +41,10 @@
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_71_900" result="shape" />
                 </filter>
             </defs>
-        </svg>
-
-        <svg viewBox="0 0 600 624" fill="none" xmlns="http://www.w3.org/2000/svg"
+            </svg>
+        </div>
+        <div class="w-full lg:w-1/2">
+            <svg viewBox="0 0 600 624" fill="none" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_f_71_921)">
                 <ellipse cx="293.911" cy="575.558" rx="213.434" ry="5.35646" fill="black" fill-opacity="0.45" />
@@ -157,9 +159,10 @@
                 
                 
             </defs>
-        </svg>
-
-        <button @click="emit('call-to-action')" class="w-full h-[70px] px-8 bg-[#E61B21] rounded-md text-white text-xl font-extrabold">Inscrivez-vous dès maintenant</button>
+            </svg>
+        </div>
+        
+        <button @click="emit('call-to-action')" class="w-full h-[70px] px-8 bg-[#E61B21] rounded-md text-white text-xl font-extrabold lg:w-1/2">Inscrivez-vous dès maintenant</button>
 
     </div>
 </template>
