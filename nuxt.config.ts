@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vite-pwa/nuxt',
     'nuxt-delay-hydration',
-    'nuxt-svgo'
+    'nuxt-svgo',
   ],
 
   directus: {

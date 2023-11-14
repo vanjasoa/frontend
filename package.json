@@ -20,6 +20,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "nuxt-directus": "5.5.0"
+    "nuxt-directus": "5.5.0",
+    "qrcode-vue3": "^1.6.8"
   }
 }
