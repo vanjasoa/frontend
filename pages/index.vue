@@ -15,12 +15,14 @@ const { getItems } = useDirectusItems();
 const { login, logout } = useDirectusAuth();
 const user = useDirectusUser();
 const product = ref({})
+const router = useRouter();
 
 //const userData = ref({email:'teddy@mail.com',password:'123456'})
 
 const onSubmit = async (logindata) => {
     try {
         await login({ email: logindata.email, password: logindata.password });
+        router.push('/welcome')
         
     } catch (e) {
         console.log(e)
