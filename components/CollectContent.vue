@@ -5,10 +5,10 @@
                 <slot name="retour" />
             </div>
             
-            <div class="flex justify-around my-2">
+            <div class="flex justify-around my-2 w-full mx-4">
                 <slot name="category" />
             </div>
-            <div class="flex justify-around my-16">
+            <div class="flex justify-around my-16 w-full mx-4">
                 <div class="grid grid-cols-2 gap-16 place-content-evenly">
                     <slot name="productlist" />
                 </div>

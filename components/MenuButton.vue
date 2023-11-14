@@ -2,7 +2,7 @@
     <div v-if="props.name === 'Profil'">
 
     </div>
-    <div v-else class="w-[369px] h-[303px] my-8">
+    <div v-else class="w-64 h-64 my-8">
 
         <div>
             <svg viewBox="0 0 370 340" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col w-[177px] h-[200px] border-2 rounded-xl items-end ">
-        <svg class="mx-auto" width="143" height="142" viewBox="0 0 143 142" fill="none" xmlns="http://www.w3.org/2000/svg"
+    <div class="flex flex-col w-full h-[200px] border-2 rounded-xl items-end mx-4">
+        <svg class="mx-auto" viewBox="0 0 143 142" fill="none" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect x="0.333496" width="142" height="142" fill="url(#pattern0)" />
             <defs>

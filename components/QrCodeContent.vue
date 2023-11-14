@@ -1,6 +1,8 @@
 <template>
         <div class="flex flex-col justify-center items-center">
-            <slot name="retour" />
+            <div class="mt-[-100px]">
+                <slot name="retour" />
+            </div>
             <div class="my-16">
                 <QRCodeVue3 value="Simple QR code" />
             </div>
