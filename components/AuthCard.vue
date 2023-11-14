@@ -41,9 +41,9 @@
                 <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre prénom">
                 <span class="self-start my-4">Votre date de naissance</span>
                 <div class="w-full flex flex-row justify-between">
-                    <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Jour">
-                    <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Mois">
-                    <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Année">
+                    <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 p-2" type="text" placeholder="Jour">
+                    <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 p-2" type="text" placeholder="Mois">
+                    <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 p-2" type="text" placeholder="Année">
                 </div>
                 <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre numéro de téléphone">
                 <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre adresse email">
