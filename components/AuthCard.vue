@@ -1,6 +1,14 @@
 <template>
     <div>
-        <div v-if="props.showAuth === 'login'" class="flex flex-col items-center my-16">
+        <Transition
+        enter-active-class="duration-300 ease-out"
+    enter-from-class="transform opacity-0"
+    enter-to-class="opacity-100"
+    leave-active-class="duration-200 ease-in"
+    leave-from-class="opacity-100"
+    leave-to-class="transform opacity-0"
+        >
+            <div v-if="props.showAuth === 'login'" class="flex flex-col items-center my-16 transition ease-in-out delay-150">
             <h1 class="font-extrabold text-4xl my-4">BIENVENUE</h1>
             <p class="text-xl mx-16 text-center my-4">
                 Connectez-vous avec votre nom d’utilisateur ou numéro de téléphone
@@ -19,8 +27,10 @@
                 <button @click="emit('connexion',loginForm)" class="w-[520px] h-[70px] bg-[#E61B21] rounded-md text-white text-xl font-extrabold">Se Connecter</button>
             </div>
         </div>
+        </Transition>
+        
 
-        <div v-if="props.showAuth === 'register'" class="flex flex-col items-center my-16">
+        <div v-if="props.showAuth === 'register'" class="flex flex-col items-center my-16 transition ease-in-out delay-150">
             <h1 class="font-extrabold text-4xl my-4">Commencez</h1>
             <p class="text-xl mx-16 text-center my-4">
                 Remplissez les champs ci-dessous pour vous inscrire.

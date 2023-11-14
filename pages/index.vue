@@ -1,6 +1,10 @@
 <template>
+  <TopNavigationBar>
+            <template #logo >
+                <img src="../public/logo.svg" />
+            </template>
+        </TopNavigationBar>
     <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
-    <button v-if="user" @click="logout">logout</button>
     <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" />
     <ProjectDescriptionCard v-else />
 </template>
