@@ -4,7 +4,7 @@
             <slot name="logo" />
         </div>
         
-        <div class="flex justify-end">
+        <div class="flex justify-end items-center m-4">
             <slot name="profil" />
         </div>
     </div>

@@ -3,7 +3,7 @@
 
         <TopNavigationBar>
             <template #logo >
-                <Logo />
+              <NuxtImg class="w-64 h-32" src="logo.png" />
             </template>
             <template #profil >
                 <PointButton />
