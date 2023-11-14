@@ -16,5 +16,8 @@ export default defineNuxtConfig({
 
   pwa: {
     /* your pwa options */
+  },
+  image: {
+    dir: 'assets/images'
   }
 })

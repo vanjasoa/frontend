@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@vite-pwa/nuxt": "^0.2.3",
     "nuxt": "^3.8.1",
@@ -20,7 +21,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.0.0",
     "nuxt-directus": "5.5.0",
     "qrcode-vue3": "^1.6.8"
   }

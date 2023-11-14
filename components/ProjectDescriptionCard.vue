@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center mx-4">
         <svg viewBox="0 0 492 223" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_71_900)">
                 <path d="M80.8845 72.1208L440.801 37.7952L414.66 150.697L54.7432 185.023L80.8845 72.1208Z" fill="white" />
