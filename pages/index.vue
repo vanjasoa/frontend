@@ -1,7 +1,7 @@
 <template>
   <TopNavigationBar>
             <template #logo >
-                <img @click="showAuth = null" src="../public/logo.svg" />
+                <img @click="showAuth = null" src="logo.png" />
             </template>
         </TopNavigationBar>
     <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
