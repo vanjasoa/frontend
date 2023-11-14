@@ -5,19 +5,17 @@
             </template>
         </TopNavigationBar>
     <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
-    <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" />
+    <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" />
     <ProjectDescriptionCard @call-to-action="showAuth = 'register'" v-else />
 </template>
 
 <script setup>
 const showAuth = ref(null)
 const { getItems } = useDirectusItems();
-const { login, logout } = useDirectusAuth();
-const user = useDirectusUser();
+const { login, createUser } = useDirectusAuth();
 const product = ref({})
 const router = useRouter();
-
-//const userData = ref({email:'teddy@mail.com',password:'123456'})
+//const { createUsers } = useDirectusUsers();
 
 const onSubmit = async (logindata) => {
     try {
@@ -36,6 +34,12 @@ const fetchProducts = async () => {
       collection: "product"
     });
     product.value = items
+  } catch (e) {}
+};
+
+const onRegister = async (registerdata) => {
+  try {
+    const newUser = await createUser({ email: registerdata.email+'@mail.com', password: registerdata.password, role: 'f8fc491a-643b-47fd-a929-18b4c6b35a17' });
   } catch (e) {}
 };
 

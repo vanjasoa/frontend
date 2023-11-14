@@ -35,8 +35,8 @@
             <p class="text-xl mx-16 text-center my-4">
                 Remplissez les champs ci-dessous pour vous inscrire.
             </p>
-            <form class="flex flex-col items-center my-8">
-                <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre nom d’utilisateur">
+            <div class="flex flex-col items-center my-8">
+                <input v-model="registerForm.email" class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre nom d’utilisateur">
                 <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre nom">
                 <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre prénom">
                 <span class="self-start my-4">Votre date de naissance</span>
@@ -47,7 +47,7 @@
                 </div>
                 <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre numéro de téléphone">
                 <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="text" placeholder="Votre adresse email">
-                <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="password" placeholder="Votre mot de passe">
+                <input v-model="registerForm.password" class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="password" placeholder="Votre mot de passe">
                 <input class="w-[520px] h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 p-2" type="password" placeholder="Ressaisir votre mot de passe">
                 <div class="flex justify-between w-full my-4">
                     <div>
@@ -56,18 +56,19 @@
                     </div>
 
                 </div>
-                <button class="w-[520px] h-[70px] bg-[#E61B21] rounded-md text-white text-xl font-extrabold">S’inscrire</button>
+                <button @click="emit('register',registerForm)" class="w-[520px] h-[70px] bg-[#E61B21] rounded-md text-white text-xl font-extrabold">S’inscrire</button>
                 
-            </form>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
 const props = defineProps(['showAuth'])
-const emit =  defineEmits(['connexion'])
+const emit =  defineEmits(['connexion','register'])
 
 const loginForm = ref({ email: 'teddy', password: '123456' })
+const registerForm = ref({ email: 'teddy', password: '123456' })
 
 
 </script>
