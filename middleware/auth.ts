@@ -8,7 +8,4 @@ export default defineNuxtRouteMiddleware(async (to, _from) => {
   if (!user.value) {
     return navigateTo("/");
   }
-  if (user.value) {
-    return navigateTo("/welcome");
-  }
 });

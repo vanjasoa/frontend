@@ -4,7 +4,7 @@
                 <slot name="retour" />
             </div>
             <div class="my-16">
-                <QRCodeVue3 value="Simple QR code" />
+                <QRCodeVue3 :value="id_client" />
             </div>
             <h1 class="text-xl font-extrabold">Présentez votre pass</h1>
         </div>

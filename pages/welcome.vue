@@ -36,7 +36,7 @@
               </ProductCard>
             </template>
           </CollectContent>
-          <QrCodeContent v-if="itemsMenu[showContent].title == 'Mon QR' " >
+          <QrCodeContent v-if="itemsMenu[showContent].title == 'Mon QR' " :id_client="user.id" >
             <template #retour >
               <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title" :color="itemsMenu[showContent].color" />
             </template>
