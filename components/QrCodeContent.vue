@@ -13,4 +13,6 @@
 <script setup>
 
 import QRCodeVue3 from "qrcode-vue3";
+
+const props = defineProps(['id_client'])
 </script>

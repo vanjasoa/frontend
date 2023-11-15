@@ -10,6 +10,11 @@
 </template>
 
 <script setup>
+
+definePageMeta({
+  middleware: ["auth"]
+})
+
 const showAuth = ref(null)
 const { getItems } = useDirectusItems();
 const { login, createUser } = useDirectusAuth();
