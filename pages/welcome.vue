@@ -6,7 +6,7 @@
               <NuxtImg class="w-64 h-32" src="logo.png" />
             </template>
             <template #profil >
-                <PointButton />
+                <PointButton :point="user.point" />
                 <AccountButton @click="ProfilShow" />
             </template>
         </TopNavigationBar>
@@ -53,7 +53,7 @@
               </LevelsCard>
             </template>
           </RewardsContent>
-          <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" :point="point" >
+          <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" >
             <template #retour >
               <button @click="showContent = null">retour</button>
             </template>
@@ -94,22 +94,12 @@ definePageMeta({
 const { logout } = useDirectusAuth();
 const user = useDirectusUser();
 const router = useRouter();
-const { getItems } = useDirectusItems();
-const point = ref({})
 
 const deconnecter = async () => {
   logout();
   router.push('/')
 };
-const fetchPoint = async () => {
-  try {
 
-    const items = await getItems({
-      collection: "point_fidelity"
-    });
-    point.value = items
-  } catch (e) { }
-};
 
 
 const showContent = ref(null);
@@ -180,7 +170,6 @@ const levelsList = [
 
 const ProfilShow = () => {
   showContent.value = 3
-  fetchPoint()
 }
 
 

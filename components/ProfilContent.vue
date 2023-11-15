@@ -10,10 +10,6 @@
                 </svg>
 
             </button>
-            <h1>{{ props.point }}</h1>
-            <p>
-                {{ props.userContent }}
-            </p>
 
             <slot name="content" />
         </div>
@@ -22,5 +18,5 @@
 
 <script setup>
 const emit = defineEmits(['quit'])
-const props = defineProps(['userContent','point'])
+const props = defineProps(['userContent'])
 </script>

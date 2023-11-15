@@ -22,6 +22,12 @@
                 </filter>
             </defs>
         </svg>
-        <span class="absolute text-md mt-11 ml-10 text-white font-extrabold">100</span>
+        <span class="absolute text-md mt-11 ml-10 text-white font-extrabold">{{ props.point }}</span>
     </div>
 </template>
+
+<script setup>
+
+const props = defineProps(['point'])
+
+</script>
