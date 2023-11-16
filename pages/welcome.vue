@@ -3,7 +3,7 @@
 
         <TopNavigationBar>
             <template #logo >
-              <NuxtImg class="w-64 h-32" src="logo.png" />
+              <NuxtImg @click="showContent = null" class="w-64 h-32" src="logo.png" />
             </template>
             <template #profil >
                 <PointButton :point="user.point" />
@@ -24,6 +24,9 @@
             </template>
             <template #category>
               <CategoryCard v-for="category in categoryList" :name="category" />
+            </template>
+            <template #pub>
+              <AdvertisingCard />
             </template>
             <template #productlist>
               <ProductCard v-for="product in productList" :product="product" >
@@ -54,9 +57,6 @@
             </template>
           </RewardsContent>
           <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" >
-            <template #retour >
-              <button @click="showContent = null">retour</button>
-            </template>
             <template #content>
               <Badge />
             </template>
@@ -133,19 +133,19 @@ const categoryList = ['pizza','glace','frite']
 const productList = [
   {
     name: 'pizza GM',
-    point:10
+    prix:10000
   },
   {
     name: 'pizza PM',
-    point:15
+    prix:15000
   },
   {
     name: 'glace GM',
-    point:20
+    prix:20000
   },
   {
     name: 'glace PM',
-    point:25
+    prix:25000
   },
 ]
 

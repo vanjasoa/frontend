@@ -1,11 +1,12 @@
 <template>
     <div>
         <div class="flex flex-col justify-center items-center">
-            <div class="mt-[-100px]">
+            <div class="mt-[-50px]">
                 <slot name="retour" />
             </div>
-            
-            <slot name="levels" />
+            <div class="m-8">
+                <slot name="levels" />
+            </div>
         </div>
     </div>
 </template>

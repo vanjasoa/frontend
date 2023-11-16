@@ -1,27 +1,17 @@
 <template>
-    <div class="w-full h-[283px] border-4 border-black rounded-lg">
+    <div class="flex flex-col w-full h-[283px] border-4 border-black rounded-lg">
 
-        <div class="mt-[-50px]">
+        <div>
             <slot name="point" />
         </div>
 
-        <div class="w-[117px] h-[117px] border-2 mx-auto">
-            <svg viewBox="0 0 157 157" fill="none" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <rect fill="url(#pattern0)" />
-                <defs>
-                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_756_1225" transform="scale(0.00155039)" />
-                    </pattern>
-                    
-                </defs>
-            </svg>
-        </div>
-        <div class="flex flex-col items-center">
-            <h1 class="text-xl font-extrabold">{{ props.product.name }}</h1>
-            <h2>{{ props.product.point }}</h2>
-
-            <button class=" border-4 border-black rounded-xl w-full h-[40px]">Ajouter au panier</button>
+        <div class="flex flex-col w-full p-4">
+            <div class="m-1">
+                <h1 class="text-xl font-extrabold">{{ props.product.name }}</h1>
+                <h2>{{ props.product.prix }}</h2>
+                <h3>Pour 3 personnes </h3>
+            </div>
+            <button class=" border-2 border-black rounded-xl h-[40px] w-full">Ajouter au panier</button>
         </div>
 
 

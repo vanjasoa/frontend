@@ -11,7 +11,12 @@
         </div>
         
         <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700 my-16">
-            <div class="bg-[#F1C534] h-4 rounded-full" style="width: 45%"></div>
+            <div class="bg-[#F1C534] h-4 rounded-full" :style="progress"></div>
         </div>
     </div>
 </template>
+
+<script setup>
+
+const progress = ref('width: 75%')
+</script>
