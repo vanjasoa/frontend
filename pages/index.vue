@@ -12,9 +12,9 @@
 <script setup>
 
 const showAuth = ref(null)
-const { getItems } = useDirectusItems();
+
 const { login, createUser } = useDirectusAuth();
-const product = ref({})
+
 const router = useRouter();
 //const { createUsers } = useDirectusUsers();
 
@@ -28,15 +28,6 @@ const onSubmit = async (logindata) => {
   }
 };
 
-const fetchProducts = async () => {
-  try {
-
-    const items = await getItems({
-      collection: "product"
-    });
-    product.value = items
-  } catch (e) { }
-};
 
 const onRegister = async (registerdata) => {
   try {

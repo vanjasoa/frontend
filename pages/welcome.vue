@@ -94,10 +94,22 @@ definePageMeta({
 const { logout } = useDirectusAuth();
 const user = useDirectusUser();
 const router = useRouter();
+const { getItems } = useDirectusItems();
+const productList = ref({})
 
 const deconnecter = async () => {
   logout();
   router.push('/')
+};
+
+const fetchProducts = async () => {
+  try {
+
+    const items = await getItems({
+      collection: "product"
+    });
+    productList.value = items
+  } catch (e) { }
 };
 
 
@@ -130,24 +142,6 @@ const itemsMenu = [
 
 const categoryList = ['pizza','glace','frite']
 
-const productList = [
-  {
-    name: 'pizza GM',
-    prix:10000
-  },
-  {
-    name: 'pizza PM',
-    prix:15000
-  },
-  {
-    name: 'glace GM',
-    prix:20000
-  },
-  {
-    name: 'glace PM',
-    prix:25000
-  },
-]
 
 const levelsList = [
   {
@@ -171,6 +165,8 @@ const levelsList = [
 const ProfilShow = () => {
   showContent.value = 3
 }
+
+fetchProducts()
 
 
 </script>

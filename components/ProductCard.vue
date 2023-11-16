@@ -6,6 +6,7 @@
         </div>
 
         <div class="flex flex-col w-full p-4">
+            <NuxtImg :src="img(props.product.image)"/>
             <div class="m-1">
                 <h1 class="text-xl font-extrabold">{{ props.product.name }}</h1>
                 <h2>{{ props.product.prix }}</h2>
@@ -21,6 +22,7 @@
 </template>
 
 <script setup>
+const { getThumbnail: img } = useDirectusFiles();
 
 const props = defineProps(['product'])
 </script>
