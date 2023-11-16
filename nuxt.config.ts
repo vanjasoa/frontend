@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     'nuxt-delay-hydration',
     'nuxt-svgo',
     '@nuxt/image',
+    '@pinia/nuxt',
   ],
 
   directus: {
@@ -19,5 +20,8 @@ export default defineNuxtConfig({
   },
   image: {
     dir: 'assets/images'
-  }
+  },
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
 })

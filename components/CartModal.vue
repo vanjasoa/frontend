@@ -16,6 +16,9 @@
 
         </div>
         <div class="w-full h-[1000px] bg-slate-300">
+            <slot name="cart" />
+
+            <button class="border-2 rounded-md border-black">Enregistrer</button>
 
         </div>
     </div>

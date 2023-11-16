@@ -29,7 +29,7 @@
               <AdvertisingCard />
             </template>
             <template #productlist>
-              <ProductCard v-for="product in productList" :product="product" >
+              <ProductCard v-for="product in productList" :product="product" @add-product="addProduct" >
                 <template #image >
                   <ImagePizza />
                 </template>
@@ -71,6 +71,9 @@
           <template #retour>
             <button @click="showCart = false">fermer</button>
           </template>
+          <template #cart>
+            <CartContent v-for="product in cart.groupedItems" :productCart="product" />
+          </template>
         </CartModal>
         
         <LevelsProgressBar>
@@ -96,6 +99,8 @@ const user = useDirectusUser();
 const router = useRouter();
 const { getItems } = useDirectusItems();
 const productList = ref({})
+import { useCartStore } from '@/stores/cart';
+const cart = useCartStore()
 
 const deconnecter = async () => {
   logout();
@@ -112,6 +117,9 @@ const fetchProducts = async () => {
   } catch (e) { }
 };
 
+const addProduct = (item) => {
+  cart.addItem(item);
+}
 
 
 const showContent = ref(null);
