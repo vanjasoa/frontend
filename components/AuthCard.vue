@@ -34,16 +34,15 @@
                 placeholder="Votre prénom">
             <span class="self-start">Votre date de naissance</span>
             <div class="flex">
+
                 <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
                     <option v-for="n in 30" value="volvo">{{ n }}</option>
                 </select>
                 <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
                     <option v-for="m in month" value="volvo">{{ m }}</option>
                 </select>
-                <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="year in (100,200)" value="volvo">{{ year }}</option>
-                </select>
-                
+                <VueDatePicker v-model="year" year-picker />
+
             </div>
             <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre numéro de téléphone">
@@ -72,6 +71,12 @@ const emit = defineEmits(['connexion', 'register'])
 
 const loginForm = ref({ email: 'teddy', password: '123456' })
 const registerForm = ref({ email: 'teddy', password: '123456' })
-const month = ref(['Janvier','Fevrier','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre'])
+const month = ref(['Janvier', 'Fevrier', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'])
+
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
+const year = ref(new Date().getFullYear());
+
 
 </script>
