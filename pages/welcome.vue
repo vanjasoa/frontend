@@ -72,7 +72,7 @@
             <button @click="showCart = false">fermer</button>
           </template>
           <template #cart>
-            <CartContent v-for="product in cart.groupedItems" :productCart="product" />
+            <CartContent :productCart="cart" />
           </template>
         </CartModal>
         
