@@ -13,6 +13,7 @@
                         )
                     }}
         </span-->
+        {{ items }}
     </div>
     <div>
         total:

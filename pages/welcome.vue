@@ -64,7 +64,7 @@
         </div>
         <div>
           <button @click="showCart = true">
-            <CartButtom />
+            <CartButtom :quantiter_produit="cart.itemsCount" />
           </button>
         </div>
         <CartModal v-if="showCart == true">
