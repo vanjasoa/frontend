@@ -18,6 +18,12 @@
                 .reduce((acc, curr) => acc + curr, 0)
         }}
     </div>
+    <div>
+        item send
+        <h2>{{ productCart.itemsSend }}</h2>
+        <p>Total point: {{ productCart.itemsSend.map((p) => p.point)
+                .reduce((acc, curr) => acc + curr, 0) }}</p>
+    </div>
 </template>
 
 <script setup>
