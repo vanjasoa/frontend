@@ -11,7 +11,7 @@
         </template>
       </TopNavigationBar>
     </header>
-    <main class="flex-1 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto z-10">
       <MenuList v-if="showContent === null">
         <template #menulist>
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
@@ -62,7 +62,7 @@
           </template>
         </RewardsContent>
         <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user"
-          :historique="com">
+          :historique="commande">
           <template #content>
             <Badge />
           </template>
