@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex flex-col items-center">
-            <div class="mt-[-50px]">
+            <div class="mt-[-50px] z-10">
                 <slot name="retour" />
             </div>
             

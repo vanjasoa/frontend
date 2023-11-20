@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-[481px] border-2 border-[#F5BF50] rounded-xl my-32">
         <div class="flex justify-around">
-            <div class="self-start mb-8 mt-[-100px] w-[260px] h-[230px]">
+            <div class="self-start mb-8 mt-[-100px] w-full h-[230px]">
                 <slot name="image" />
             </div>
             
