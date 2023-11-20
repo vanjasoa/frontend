@@ -56,7 +56,7 @@
               </LevelsCard>
             </template>
           </RewardsContent>
-          <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" :historique="commande" >
+          <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" :historique="com" >
             <template #content>
               <Badge />
             </template>
@@ -136,9 +136,10 @@ const sendCart = async (data) => {
       panier:data.panier
     }]
     await createItems({ collection: "commande", items });
-    cart.$reset()
+    
   } catch (e) {}
   console.log(data)
+  cart.$reset()
 };
 
 const addProduct = (item) => {
