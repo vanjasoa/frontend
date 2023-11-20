@@ -13,6 +13,11 @@
                 <h1>votre level est : {{ userContent.level }}</h1>
                 <h1>{{ userContent.first_name }}</h1>
 
+                <p>
+                    <h2>historique</h2>
+                    {{ props.historique }}
+                </p>
+
             <slot name="content" />
         </div>
     </div>
@@ -20,5 +25,5 @@
 
 <script setup>
 const emit = defineEmits(['quit'])
-const props = defineProps(['userContent'])
+const props = defineProps(['userContent','historique'])
 </script>

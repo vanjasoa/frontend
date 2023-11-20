@@ -20,14 +20,25 @@
     </div>
     <div>
         item send
+        <p>{{ productCart.itemsTotal }}</p>
         <h2>{{ productCart.itemsSend }}</h2>
-        <p>Total point: {{ productCart.itemsSend.map((p) => p.point)
-                .reduce((acc, curr) => acc + curr, 0) }}</p>
+        <p>Total point: {{ productCart.itemsTotal }}</p>
+
+        <button class="border-2 rounded-md border-black" @click="sendData">Enregistrer</button>
     </div>
 </template>
 
 <script setup>
+const emit = defineEmits(['saveCart'])
 const props = defineProps({
     'productCart': Object
 })
+
+const sendData = () => {
+    let data = {
+        panier: props.productCart.itemsSend,
+        Total : props.productCart.itemsTotal
+    }
+    emit('saveCart',data)
+}
 </script>

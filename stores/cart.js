@@ -4,6 +4,8 @@ export const useCartStore = defineStore('cart', () => {
 
     const itemsCount = computed(() => items.value.length); // getter
 
+    const itemsTotal = computed(() => itemsSend.value.map((p) => p.point).reduce((acc, curr) => acc + curr, 0))
+
     const groupedItems = computed(() => {
          return items.value.reduce((acc, item) => {
             if (!acc[item.name]) {
@@ -20,14 +22,14 @@ export const useCartStore = defineStore('cart', () => {
             const { id, name, prix, point } = produit;
             
             // Génération d'un nouvel objet pour chaque produit avec quantite et montant
-            const nouvelleEntree = { id, designation:name, quantite: 1, prix, montant: prix, point: point };
+            const nouvelleEntree = { id, name:name, qty: 1, prix, montant: prix, point: point };
             
             // Recherche si l'entrée existe déjà dans l'accumulateur
             const entreeExistante = accumulator.find((entree) => entree.id === id);
           
             if (entreeExistante) {
               // Si l'entrée existe déjà, mettez à jour la quantité et le montant
-              entreeExistante.quantite += 1;
+              entreeExistante.qty += 1;
               entreeExistante.montant += prix;
               entreeExistante.point += point;
             } else {
@@ -52,5 +54,5 @@ export const useCartStore = defineStore('cart', () => {
         items.value = [];
     } // action $reset
 
-    return { items, itemsCount, groupedItems, addItem, removeItem, $reset,itemsSend}
+    return { items, itemsCount, itemsTotal, groupedItems, addItem, removeItem, $reset,itemsSend}
 });

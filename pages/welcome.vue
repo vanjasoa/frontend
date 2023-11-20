@@ -56,7 +56,7 @@
               </LevelsCard>
             </template>
           </RewardsContent>
-          <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" >
+          <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user" :historique="commande" >
             <template #content>
               <Badge />
             </template>
@@ -67,12 +67,12 @@
             <CartButtom :quantiter_produit="cart.itemsCount" />
           </button>
         </div>
-        <CartModal v-if="showCart == true">
+        <CartModal v-if="showCart == true" :total-point="cart.itemsTotal">
           <template #retour>
             <button @click="showCart = false">fermer</button>
           </template>
           <template #cart>
-            <CartContent :productCart="cart" />
+            <CartContent :productCart="cart" @saveCart="sendCart" />
           </template>
         </CartModal>
         
@@ -97,10 +97,11 @@ definePageMeta({
 const { logout } = useDirectusAuth();
 const user = useDirectusUser();
 const router = useRouter();
-const { getItems } = useDirectusItems();
+const { getItems, createItems } = useDirectusItems();
 const productList = ref({})
 import { useCartStore } from '@/stores/cart';
 const cart = useCartStore()
+const commande = ref({})
 
 const deconnecter = async () => {
   logout();
@@ -115,6 +116,29 @@ const fetchProducts = async () => {
     });
     productList.value = items
   } catch (e) { }
+};
+
+const fetchCommande = async () => {
+  try {
+
+    const items = await getItems({
+      collection: "commande"
+    });
+    commande.value = items
+  } catch (e) { }
+};
+
+const sendCart = async (data) => {
+  try {
+    //const items = cart.itemsSend.value;
+    const items = [{
+      Total:data.Total,
+      panier:data.panier
+    }]
+    await createItems({ collection: "commande", items });
+    cart.$reset()
+  } catch (e) {}
+  console.log(data)
 };
 
 const addProduct = (item) => {
@@ -175,6 +199,7 @@ const ProfilShow = () => {
 }
 
 fetchProducts()
+fetchCommande()
 
 
 </script>
