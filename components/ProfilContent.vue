@@ -15,7 +15,9 @@
 
                 <p>
                     <h2>historique</h2>
-                    {{ props.historique }}
+                    <ul v-for="commande in props.historique">
+                        <li>{{ commande.status }} - Total point: {{ commande.Total }} - {{ commande.date_created }}</li>
+                    </ul>
                 </p>
 
             <slot name="content" />
