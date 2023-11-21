@@ -7,22 +7,18 @@
             point) => totalItemPrice + point, 0) }} Point</h4>
     </div>
     <div>
-        Total {{
+        Montant Total {{
             productCart.items
                 .map((p) => p.prix)
                 .reduce((acc, curr) => acc + curr, 0)
         }}
-        Total Point {{
+        Total des Points {{
             productCart.items
                 .map((p) => p.point)
                 .reduce((acc, curr) => acc + curr, 0)
         }}
     </div>
     <div>
-        item send
-        <p>{{ productCart.itemsTotal }}</p>
-        <h2>{{ productCart.itemsSend }}</h2>
-        <p>Total point: {{ productCart.itemsTotal }}</p>
 
         <button class="border-2 rounded-md border-black" @click="sendData">Enregistrer</button>
     </div>

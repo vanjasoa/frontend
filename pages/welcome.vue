@@ -11,7 +11,7 @@
         </template>
       </TopNavigationBar>
     </header>
-    <main class="flex-1 overflow-y-auto z-10">
+    <main class="flex-1 overflow-y-auto z-40">
       <MenuList v-if="showContent === null">
         <template #menulist>
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
@@ -112,6 +112,7 @@ const productList = ref({})
 import { useCartStore } from '@/stores/cart';
 const cart = useCartStore()
 const commande = ref({})
+const showProduct = ref(true)
 
 const deconnecter = async () => {
   logout();
