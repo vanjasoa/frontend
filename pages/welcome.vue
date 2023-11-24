@@ -212,7 +212,7 @@ const sendCart = async (data) => {
     try {
       //const items = cart.itemsSend.value;
       const items = [{
-        Total: data.Total,
+        total: data.Total,
         panier: data.panier
       }]
       await createItems({ collection: "rewards", items });
