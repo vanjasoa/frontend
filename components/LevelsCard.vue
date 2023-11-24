@@ -6,7 +6,7 @@
             </div>
             
             <div class="flex self-end mb-4">
-                <h1 class="font-extrabold text-[#F5BF50] text-6xl self-end mx-2">{{ props.level.point }}</h1>
+                <h1 class="font-extrabold text-[#F5BF50] text-6xl self-end mx-2">{{ props.level.pointsRequired }}</h1>
                 <span class="text-[#F5BF50] font-extrabold text-2xl self-end">POINT</span>
             </div>
             
@@ -16,7 +16,9 @@
         </div>
         <div>
             <p class="text-xl text-center">
-                Il  faut débloquer un niveau supérieur pour réclamer des récompenses.
+               <ul v-for="category in props.level.categories">
+                <li>{{ category }}</li>
+               </ul>
             </p>
         </div>
     </div>

@@ -20,6 +20,7 @@
       </MenuList>
 
       <div v-else>
+
         <CollectContent v-if="itemsMenu[showContent].title == 'Je collecte'">
           <template #retour>
             <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
@@ -42,31 +43,35 @@
             </ProductCard>
           </template>
         </CollectContent>
+
         <QrCodeContent v-if="itemsMenu[showContent].title == 'Mon QR'" :id_client="user.id">
           <template #retour>
             <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
               :color="itemsMenu[showContent].color" />
           </template>
         </QrCodeContent>
+
         <RewardsContent v-if="itemsMenu[showContent].title == 'Mes recompenses'">
           <template #retour>
             <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
               :color="itemsMenu[showContent].color" />
           </template>
           <template #levels>
-            <LevelsCard v-for="level in levelsList" :level="level">
+            <LevelsCard v-for="level in rewardLevels" :level="level">
               <template #image>
                 <Level />
               </template>
             </LevelsCard>
           </template>
         </RewardsContent>
+
         <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user"
           :historique="commande">
           <template #content>
             <Badge />
           </template>
         </ProfilContent>
+        
       </div>
     </main>
     <footer>
@@ -187,24 +192,11 @@ const itemsMenu = [
 const categoryList = ['pizza', 'glace', 'frite']
 
 
-const levelsList = [
-  {
-    name: 'Noobs',
-    point: 0
-  },
-  {
-    name: 'FastoPRIME',
-    point: 50
-  },
-  {
-    name: 'El gourmet',
-    point: 75
-  },
-  {
-    name: 'Miam Master',
-    point: 100
-  },
-]
+const rewardLevels = [
+  { name: 'FastoPRIME', pointsRequired: 50, categories: ['Glace', 'Jus'] },
+  { name: 'El gourmet', pointsRequired: 75, categories: ['Fastfood','Glace', 'Jus'] },
+  { name: 'Miam Master', pointsRequired: 100, categories: ['Pizza','Fastfood','Glace', 'Jus'] },
+];
 
 const ProfilShow = () => {
   showContent.value = 3
