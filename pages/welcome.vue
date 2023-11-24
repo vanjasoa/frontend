@@ -36,9 +36,7 @@
           <template #productlist>
             <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
               @add-product="addProduct" v-if="selectedCategory">
-              <template #image>
-                <ImagePizza />
-              </template>
+              
               <template #point>
                 <PointButton />
               </template>

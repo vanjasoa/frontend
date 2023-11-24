@@ -14,7 +14,6 @@
             </div>
             <button class="border-2 border-black rounded-xl h-[40px] w-full active:bg-slate-400" @click="emit('addProduct',product)">Ajouter au panier</button>
         </div>
-        <slot name="image" />
 
     </div>
 </template>
