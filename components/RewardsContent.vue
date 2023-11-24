@@ -12,7 +12,7 @@
                     plus vos récompenses seront grandes.
                 </p>
             </div>
-            <div>
+            <div class="flex w-full flex-col p-4">
                 <slot name="levels" />
             </div>
         </div>
