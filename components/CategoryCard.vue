@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full h-[200px] border-2 rounded-xl items-end mx-2">
+    <div class="flex flex-col w-full border-2 rounded-xl items-end mx-2">
 
         <h1 class="font-extrabold text-xl items my-2 mx-auto">{{ props.name }}</h1>
 

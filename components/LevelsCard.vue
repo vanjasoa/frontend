@@ -17,6 +17,7 @@
         <div>
             <p class="text-xl text-center w-full h-2">
                <slot name="category" />
+               <button class="w-full p-2 bg-black text-white font-extrabold rounded-md">Reclamer maintenant</button>
             </p>
             <p>
                 <slot name="products" />
