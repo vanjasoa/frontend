@@ -27,13 +27,15 @@
               :color="itemsMenu[showContent].color" />
           </template>
           <template #category>
-            <CategoryCard v-for="category in categoryList" :name="category" v-if="selectedCategory === null" @click="selectCategory(category)" />
+            <CategoryCard v-for="category in categoryList" :name="category" v-if="selectedCategory === null"
+              @click="selectCategory(category)" />
           </template>
           <template #pub>
             <AdvertisingCard />
           </template>
           <template #productlist>
-            <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product" @add-product="addProduct" v-if="selectedCategory">
+            <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
+              @add-product="addProduct" v-if="selectedCategory">
               <template #image>
                 <ImagePizza />
               </template>
@@ -58,11 +60,24 @@
               :color="itemsMenu[showContent].color" />
           </template>
           <template #levels>
-            <LevelsCard v-for="level in rewardLevels" :level="level">
+            <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null">
               <template #image>
                 <Level />
               </template>
+              <template #category>
+                <CategoryCard v-for="category in level.categories" :name="category" @click="selectCategory(category)" />
+              </template>
             </LevelsCard>
+            <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
+              @add-product="addProduct" v-if="selectedCategory">
+              <template #image>
+                <ImagePizza />
+              </template>
+              <template #point>
+                <PointButton />
+              </template>
+            </ProductCard>
+            <button v-if="selectedCategory" @click="selectedCategory = null">retour rewards</button>
           </template>
         </RewardsContent>
 

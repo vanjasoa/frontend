@@ -15,10 +15,11 @@
             <h2 class="text-4xl font-extrabold text-[#A8062B] m-auto">{{ props.level.name }}</h2>
         </div>
         <div>
-            <p class="text-xl text-center">
-               <ul v-for="category in props.level.categories">
-                <li>{{ category }}</li>
-               </ul>
+            <p class="text-xl text-center w-full h-2">
+               <slot name="category" />
+            </p>
+            <p>
+                <slot name="products" />
             </p>
         </div>
     </div>
