@@ -33,7 +33,7 @@
             <AdvertisingCard />
           </template>
           <template #productlist>
-            <ProductCard v-for="product in productList" :product="product" @add-product="addProduct" v-if="selectedCategory">
+            <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product" @add-product="addProduct" v-if="selectedCategory">
               <template #image>
                 <ImagePizza />
               </template>
@@ -114,7 +114,7 @@ const { logout } = useDirectusAuth();
 const user = useDirectusUser();
 const router = useRouter();
 const { getItems, createItems } = useDirectusItems();
-const productList = ref({})
+const productList = ref([])
 import { useCartStore } from '@/stores/cart';
 const cart = useCartStore()
 const commande = ref({})
@@ -212,7 +212,7 @@ const selectCategory = (category) => {
 };
 
 const getProductsByCategory = (category) => {
-  return productList.filter((product) => product.category === category);
+  return productList.value.filter((product) => product.category === category);
 };
 
 
