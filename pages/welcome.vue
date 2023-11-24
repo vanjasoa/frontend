@@ -27,13 +27,13 @@
               :color="itemsMenu[showContent].color" />
           </template>
           <template #category>
-            <CategoryCard v-for="category in categoryList" :name="category" />
+            <CategoryCard v-for="category in categoryList" :name="category" v-if="selectedCategory === null" @click="selectCategory(category)" />
           </template>
           <template #pub>
             <AdvertisingCard />
           </template>
           <template #productlist>
-            <ProductCard v-for="product in productList" :product="product" @add-product="addProduct">
+            <ProductCard v-for="product in productList" :product="product" @add-product="addProduct" v-if="selectedCategory">
               <template #image>
                 <ImagePizza />
               </template>
@@ -41,6 +41,7 @@
                 <PointButton />
               </template>
             </ProductCard>
+            <button v-if="selectedCategory" @click="selectedCategory = null">retour category</button>
           </template>
         </CollectContent>
 
@@ -71,18 +72,18 @@
             <Badge />
           </template>
         </ProfilContent>
-        
+
       </div>
     </main>
     <footer>
       <div>
-        <button @click="showCart = true">
+        <button @click="toggleCart">
           <CartButtom :quantiter_produit="cart.itemsCount" />
         </button>
       </div>
     </footer>
 
-    <CartModal v-if="showCart == true" :total-point="cart.itemsTotal">
+    <CartModal v-if="showCart == true" :total-point="cart.itemsTotal" :title_cart="title_cart">
       <template #retour>
         <button @click="showCart = false">fermer</button>
       </template>
@@ -117,7 +118,42 @@ const productList = ref({})
 import { useCartStore } from '@/stores/cart';
 const cart = useCartStore()
 const commande = ref({})
-const showProduct = ref(true)
+//const showProduct = ref(true)
+const title_cart = ref('')
+const showContent = ref(null);
+const showCart = ref(false);
+const itemsMenu = [
+  {
+    title: "Mon QR",
+    content: "Contenu Mon QrCode",
+    color: '#11973F'
+  },
+  {
+    title: "Je collecte",
+    content: "Contenu collection de produits.",
+    color: '#F1C534'
+  },
+  {
+    title: "Mes recompenses",
+    content: "Contenu des recompenses.",
+    color: '#E61B21'
+  },
+  {
+    title: "Profil",
+    content: "Contenu des recompenses.",
+    color: '#11973F'
+  },
+];
+
+const categoryList = ['pizza', 'glace', 'jus', 'fastfood']
+const selectedCategory = ref(null);
+
+
+const rewardLevels = [
+  { name: 'FastoPRIME', pointsRequired: 50, categories: ['glace', 'jus'] },
+  { name: 'El gourmet', pointsRequired: 75, categories: ['fastfood', 'glace', 'jus'] },
+  { name: 'Miam Master', pointsRequired: 100, categories: ['pizza', 'fastfood', 'glace', 'jus'] },
+];
 
 const deconnecter = async () => {
   logout();
@@ -145,58 +181,60 @@ const fetchCommande = async () => {
 };
 
 const sendCart = async (data) => {
-  try {
-    //const items = cart.itemsSend.value;
-    const items = [{
-      Total: data.Total,
-      panier: data.panier
-    }]
-    await createItems({ collection: "commande", items });
+  if (showContent.value === 1) {
+    try {
+      //const items = cart.itemsSend.value;
+      const items = [{
+        Total: data.Total,
+        panier: data.panier
+      }]
+      await createItems({ collection: "commande", items });
 
-  } catch (e) { }
-  console.log(data)
-  cart.$reset()
+    } catch (e) { }
+    cart.$reset()
+  }
+  if (showContent.value === 2) {
+    try {
+      //const items = cart.itemsSend.value;
+      const items = [{
+        Total: data.Total,
+        panier: data.panier
+      }]
+      await createItems({ collection: "rewards", items });
+
+    } catch (e) { }
+    cart.$reset()
+  }
+}
+
+const selectCategory = (category) => {
+  selectedCategory.value = category;
 };
+
+const getProductsByCategory = (category) => {
+  return productList.filter((product) => product.category === category);
+};
+
 
 const addProduct = (item) => {
   cart.addItem(item);
 }
 
+const toggleCart = () => {
+  showCart.value = !showCart.value;
+  console.log(showContent.value)
 
-const showContent = ref(null);
-const showCart = ref(false);
-
-const itemsMenu = [
-  {
-    title: "Mon QR",
-    content: "Contenu Mon QrCode",
-    color: '#11973F'
-  },
-  {
-    title: "Je collecte",
-    content: "Contenu collection de produits.",
-    color: '#F1C534'
-  },
-  {
-    title: "Mes recompenses",
-    content: "Contenu des recompenses.",
-    color: '#E61B21'
-  },
-  {
-    title: "Profil",
-    content: "Contenu des recompenses.",
-    color: '#11973F'
-  },
-];
-
-const categoryList = ['pizza', 'glace', 'frite']
-
-
-const rewardLevels = [
-  { name: 'FastoPRIME', pointsRequired: 50, categories: ['Glace', 'Jus'] },
-  { name: 'El gourmet', pointsRequired: 75, categories: ['Fastfood','Glace', 'Jus'] },
-  { name: 'Miam Master', pointsRequired: 100, categories: ['Pizza','Fastfood','Glace', 'Jus'] },
-];
+  if (showContent.value === 1) {
+    title_cart.value = 'collecter'
+  }
+  if (showContent.value === 2) {
+    title_cart.value = 'rewards'
+  }
+  if (showContent.value === null) {
+    title_cart.value = 'panier vide'
+    cart.$reset()
+  }
+};
 
 const ProfilShow = () => {
   showContent.value = 3

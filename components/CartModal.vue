@@ -4,6 +4,9 @@
             <div>
                 <slot name="retour" />
             </div>
+            <div>
+                <h2>{{ props.title_cart }}</h2>
+            </div>
             <div class="flex justify-end bg-white">
                 <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -24,6 +27,6 @@
 
 <script setup>
 
-const props = defineProps(['totalPoint'])
+const props = defineProps(['totalPoint','title_cart'])
 
 </script>
