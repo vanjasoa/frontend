@@ -41,7 +41,10 @@
                 <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
                     <option v-for="m in month" value="volvo">{{ m }}</option>
                 </select>
-                <VueDatePicker v-model="year" year-picker />
+                <select v-model="birthYear" id="birthYear"
+                    class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
+                    <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+                </select>
 
             </div>
             <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
@@ -76,7 +79,16 @@ const month = ref(['Janvier', 'Fevrier', 'Mai', 'Juin', 'Juillet', 'Aout', 'Sept
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 
-const year = ref(new Date().getFullYear());
+const startYear = 1900;
+const currentYear = new Date().getFullYear();
+const years = computed(() => {
+  const result = [];
+  for (let year = currentYear; year >= startYear; year--) {
+    result.push(year);
+  }
+  return result;
+});
 
+const birthYear = ref('2023');
 
 </script>

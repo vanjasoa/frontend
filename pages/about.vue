@@ -55,6 +55,16 @@
       <span>Points : {{ totalPoints }}</span>
     </div>
   </div>
+  
+  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md">
+      <label for="birthYear" class="block text-sm font-medium text-gray-700">Année de naissance</label>
+      <select v-model="birthYear" id="birthYear" class="mt-1 block w-full border-gray-300 rounded-md focus:border-indigo-500 focus:ring focus:ring-indigo-200">
+        <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+
 </template>
 
 <script setup>
@@ -140,4 +150,21 @@ const validateCart = () => {
   titre_panier.value = null;
   cartVisible.value = false;
 };
+
+////
+
+const startYear = 1900;
+const currentYear = new Date().getFullYear();
+const years = computed(() => {
+  const result = [];
+  for (let year = currentYear; year >= startYear; year--) {
+    result.push(year);
+  }
+  return result;
+});
+
+const birthYear = ref('');
+const ageMessage = ref('');
+
+
 </script>
