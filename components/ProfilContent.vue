@@ -9,16 +9,22 @@
                         fill="white" />
                 </svg>
             </button>
-            <h1>votre point : {{ userContent.point }}</h1>
-                <h1>votre level est : {{ userContent.level }}</h1>
-                <h1>{{ userContent.first_name }}</h1>
-
-                <p>
-                    <h2>historique</h2>
-                    <ul v-for="commande in props.historique">
-                        <li>{{ commande.status }} - Total point: {{ commande.Total }} - {{ commande.date_created }}</li>
-                    </ul>
-                </p>
+            <div>
+                <h1 class="font-extrabold">{{ userContent.last_name }}</h1>
+                <h1 class="font-extrabold">{{ userContent.first_name }}</h1>
+            </div>
+            <div class="bg-[#960022] rounded-md">
+                <span class="text-white">Niveaux</span>
+                <h1 class="font-extrabold text-white">{{ userContent.level }}</h1>
+            </div>
+            <div>
+                <h2 class="font-extrabold">Historique des commandes</h2>
+                <ul v-for="commande in props.historique">
+                    <li class="border-2 border-black p-2">
+                        {{ commande.status }} - Total point: {{ commande.Total }} - {{ commande.date_created }}
+                    </li>
+                </ul>
+            </div>
 
             <slot name="content" />
         </div>
@@ -27,5 +33,5 @@
 
 <script setup>
 const emit = defineEmits(['quit'])
-const props = defineProps(['userContent','historique'])
+const props = defineProps(['userContent', 'historique'])
 </script>

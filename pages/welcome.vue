@@ -81,9 +81,6 @@
 
         <ProfilContent v-if="itemsMenu[showContent].title == 'Profil'" @quit="deconnecter" :user-content="user"
           :historique="commande">
-          <template #content>
-            <Badge />
-          </template>
         </ProfilContent>
 
       </div>
