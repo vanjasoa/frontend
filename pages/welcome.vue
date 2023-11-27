@@ -38,7 +38,7 @@
               @add-product="addProduct" v-if="selectedCategory">
 
               <template #point>
-                <PointButton />
+                <PointButton :point="product.point" />
               </template>
             </ProductCard>
             <button v-if="selectedCategory" @click="selectedCategory = null">retour category</button>
@@ -76,7 +76,7 @@
                 <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
                   @add-product="addProduct">
                   <template #point>
-                    <PointButton />
+                    <PointButton :point="product.point" />
                   </template>
                 </ProductCard>
               </template>
