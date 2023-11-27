@@ -14,19 +14,21 @@
       </div>
       <div class="mt-4">
         <p class="text-xl text-center">
-          <slot name="category" />
-          <button class="w-full p-2 bg-black text-white font-extrabold rounded-md mx-4 flex-shrink-0 hover:bg-gray-800">
+          
+          <button @click="showRewards = true" class="w-full p-2 bg-black text-white font-extrabold rounded-md mx-4 flex-shrink-0 hover:bg-gray-800">
             Réclamer maintenant
           </button>
         </p>
-        <p class="mt-2">
-          <slot name="products" />
-        </p>
       </div>
+    </div>
+    <div class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-white" v-if="showRewards === true">
+            <slot name="category" />
+            <slot name="products" />
     </div>
   </template>
   
   <script setup>
   const props = defineProps(['level'])
+  const showRewards = ref(false)
   </script>
   

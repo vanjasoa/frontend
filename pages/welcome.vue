@@ -65,16 +65,25 @@
               <template #category>
                 <CategoryCard v-for="category in level.categories" :name="category" @click="selectCategory(category)" />
               </template>
+              <template #products>
+
+              </template>
             </LevelsCard>
-            <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
-              @add-product="addProduct" v-if="selectedCategory">
-              <template #image>
-                <ImagePizza />
+            <RewardsModal v-if="selectedCategory">
+              <template #modal>
+                <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
+                  @add-product="addProduct">
+                  <template #image>
+                    <ImagePizza />
+                  </template>
+                  <template #point>
+                    <PointButton />
+                  </template>
+                </ProductCard>
               </template>
-              <template #point>
-                <PointButton />
-              </template>
-            </ProductCard>
+            </RewardsModal>
+
+
             <button v-if="selectedCategory" @click="selectedCategory = null">retour rewards</button>
           </template>
         </RewardsContent>
@@ -108,6 +117,8 @@
         <CartContent :productCart="cart" @saveCart="sendCart" />
       </template>
     </CartModal>
+
+
 
     <!--LevelsProgressBar>
           <template #level>
