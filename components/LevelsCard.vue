@@ -20,7 +20,7 @@
         </ul>
       
       <div class="mx-4">
-          <button @click="showRewards = true" class="w-full p-2 bg-black text-white font-extrabold rounded-md flex-shrink-0 hover:bg-gray-800">
+          <button :disabled="props.userPoints < props.level.pointsRequired" @click="showRewards = true" :class="{ 'w-full p-2 font-extrabold rounded-md flex-shrink-0 bg-gray-300 text-gray-600 cursor-not-allowed': props.userPoints < props.level.pointsRequired, 'w-full p-2 bg-black text-white font-extrabold rounded-md flex-shrink-0 hover:bg-gray-800 ': userPoints >= pointsRequired }" class="">
             Réclamer maintenant
           </button>
       </div>
@@ -34,7 +34,7 @@
   </template>
   
   <script setup>
-  const props = defineProps(['level','categoryAvailable'])
+  const props = defineProps(['level','categoryAvailable','userPoints'])
   const showRewards = ref(false)
   </script>
   
