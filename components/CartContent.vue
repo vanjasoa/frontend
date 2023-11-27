@@ -12,8 +12,6 @@
                 <button class="rounded-full bg-black text-white w-8 h-8 mx-auto"> + </button>
             </div>
         </div>
-
-
         <!--h2>{{ items.length }} X {{ items.map((i) => i.prix)[0] }} Ariary = {{ items.map((i) =>
             i.prix).reduce((totalItemPrice,
                 prix) => totalItemPrice + prix, 0) }} Ariary</h2>
@@ -24,16 +22,19 @@
     <div class="border-2 border-black rounded-md w-full p-4 flex flex-col">
         <div class="flex justify-between">
             <span class="font-extrabold">Total</span>
-            <span class="text-green-500 font-extrabold text-xl">{{productCart.items.map((p) => p.prix).reduce((acc, curr) => acc + curr, 0)}} Ariary</span>
+            <span class="text-green-500 font-extrabold text-xl">{{ productCart.items.map((p) => p.prix).reduce((acc,
+                curr) => acc + curr, 0) }} Ariary</span>
         </div>
         <div class="flex justify-between">
             <span class="font-extrabold">Total</span>
-            <span class="text-green-500 font-extrabold text-xl">{{productCart.items.map((p) => p.point).reduce((acc, curr) => acc + curr, 0)}} Points</span> 
+            <span class="text-green-500 font-extrabold text-xl">{{ productCart.items.map((p) => p.point).reduce((acc,
+                curr) => acc + curr, 0) }} Points</span>
         </div>
     </div>
     <div>
 
-        <button class="rounded-md bg-red-500 text-white font-extrabold p-2" @click="sendData">Enregistrer la commande</button>
+        <button class="rounded-md bg-red-500 text-white font-extrabold p-2" @click="sendData">Enregistrer la
+            commande</button>
     </div>
 </template>
 

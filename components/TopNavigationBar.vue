@@ -3,7 +3,7 @@
         <div class="mx-auto lg:-mx-200">
             <slot name="logo" />
         </div>
-        
+
         <div class="flex justify-end items-center m-4">
             <slot name="profil" />
         </div>
