@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules:[
     'nuxt-directus',
-    '@nuxtjs/tailwindcss',
+    '@nuxt/ui',
     '@vite-pwa/nuxt',
     'nuxt-delay-hydration',
     'nuxt-svgo',

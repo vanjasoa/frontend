@@ -58,7 +58,7 @@
               :color="itemsMenu[showContent].color" />
           </template>
           <template #levels>
-            <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null">
+            <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null" :category-available="level.categories">
               <template #image>
                 <Level />
               </template>
@@ -69,6 +69,7 @@
 
               </template>
             </LevelsCard>
+            
             <RewardsModal v-if="selectedCategory">
               <template #modal>
                 <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
@@ -94,12 +95,12 @@
 
       </div>
     </main>
-    <footer>
-      <div>
+    <footer class="bg-tansparent">
+  
         <button @click="toggleCart">
           <CartButtom :quantiter_produit="cart.itemsCount" />
         </button>
-      </div>
+      
     </footer>
 
     <CartModal v-if="showCart == true" :total-point="cart.itemsTotal" :title_cart="title_cart">

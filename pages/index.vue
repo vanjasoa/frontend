@@ -1,4 +1,5 @@
 <template>
+  
   <TopNavigationBar>
     <template #logo>
       <NuxtImg class="w-64 h-32" src="logo.png" @click="showAuth = null" />
@@ -20,21 +21,21 @@ const router = useRouter();
 
 const onSubmit = async (logindata) => {
   try {
+    
     await login({ email: logindata.email + '@mail.com', password: logindata.password });
-    router.push('/welcome')
-
+    router.push('/welcome');
   } catch (e) {
-    console.log(e)
-  }
+    console.log(e);
+  } 
 };
-
 
 const onRegister = async (registerdata) => {
   try {
+    
     const newUser = await createUser({ email: registerdata.email + '@mail.com', password: registerdata.password, role: 'f8fc491a-643b-47fd-a929-18b4c6b35a17' });
-    showAuth.value = 'login'
-  } catch (e) { }
+    showAuth.value = 'login';
+  } catch (e) {
+  } 
 };
-
 
 </script>
