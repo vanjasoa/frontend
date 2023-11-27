@@ -56,27 +56,7 @@
     </div>
   </div>
   
-  <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-    <header class="mb-8">
-      <img @click="showHome" src="logo.png" alt="Logo" class="cursor-pointer" />
-    </header>
-    <div class="flex space-x-4">
-      <button @click="showLogin" :class="{ 'bg-black text-white': activeTab === 'login' }" class="px-4 py-2 rounded transition">Login</button>
-      <button @click="showRegister" :class="{ 'bg-black text-white': activeTab === 'register' }" class="px-4 py-2 rounded transition">Register</button>
-    </div>
-    <div v-if="activeTab === 'login'" class="transition-opacity">
-      <!-- Contenu de l'interface de connexion -->
-      <p>Contenu de l'interface de connexion</p>
-    </div>
-    <div v-if="activeTab === 'register'" class="transition-opacity">
-      <!-- Contenu de l'interface d'inscription -->
-      <p>Contenu de l'interface d'inscription</p>
-    </div>
-    <div v-if="activeTab === 'home'" class="transition-opacity">
-      <!-- Contenu de la page d'accueil -->
-      <p>Contenu de la page d'accueil</p>
-    </div>
-  </div>
+
 
 </template>
 
@@ -166,25 +146,6 @@ const validateCart = () => {
 
 ////
 
-const activeTab = ref('home');
-
-const showLogin = () => {
-  activeTab.value = 'login';
-};
-
-const showRegister = () => {
-  activeTab.value = 'register';
-};
-
-const showHome = () => {
-  activeTab.value = 'home';
-};
 
 
 </script>
-<style scoped>
-/* Styles spécifiques si nécessaire */
-.transition {
-  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
-}
-</style>
