@@ -4,7 +4,7 @@
             <slot name="retour" />
         </div>
         <div class="my-16">
-            <QRCodeVue3 :width="250" :height="250" :value="id_client"
+            <!--QRCodeVue3 :width="250" :height="250" :value="id_client"
                 :qrOptions="{ typeNumber: 0, mode: 'Byte', errorCorrectionLevel: 'H' }"
                 :imageOptions="{ hideBackgroundDots: true, imageSize: 0.4, margin: 0 }" :dotsOptions="{
                     type: 'square',
@@ -19,7 +19,10 @@
                     },
                 }" :backgroundOptions="{ color: '#ffffff' }" :cornersSquareOptions="{ type: 'square', color: '#000000' }"
                 :cornersDotOptions="{ type: undefined, color: '#000000' }" fileExt="png" :download="true" myclass="my-qur"
-                imgclass="img-qr" downloadButton="my-button" :downloadOptions="{ name: 'vqr', extension: 'png' }" />
+                imgclass="img-qr" downloadButton="my-button" :downloadOptions="{ name: 'vqr', extension: 'png' }"
+                :ButtonName="button_name"
+                 /-->
+                 <qrcode-vue :value="id_client" :size="size" level="H" />
 
         </div>
         <h1 class="text-xl font-extrabold">Présentez votre pass</h1>
@@ -28,7 +31,9 @@
 
 <script setup>
 
-import QRCodeVue3 from "qrcode-vue3";
+//import QRCodeVue3 from "qrcode-vue3";
+import QrcodeVue from 'qrcode.vue'
+const size = ref(200)
 
 const props = defineProps(['id_client'])
 </script>
