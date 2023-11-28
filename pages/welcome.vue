@@ -61,7 +61,7 @@
             <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null"
               :category-available="level.categories" :user-points="user.point">
               <template #image>
-                <Level />
+                <img :src="level.name+'.png'" />
               </template>
               <template #category>
                 <CategoryCard v-for="category in level.categories" :name="category" @click="selectCategory(category)" />
