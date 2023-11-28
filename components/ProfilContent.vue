@@ -16,7 +16,7 @@
             <div class="flex flex-col bg-[#960022] px-4 rounded-md w-64 mx-4 relative">
                 <span class="text-white ml-5">Niveau</span>
                 <h1 class="ml-5 font-extrabold text-white text-3xl">{{ userContent.level }}</h1>
-                <img class="w-24 h-24 absolute mt-[-10px] ml-[-75px]" src="noobs.png" />
+                <img class="w-24 h-24 absolute mt-[-10px] ml-[-75px]" :src="level+'.png'" />
             </div>
         </div>
         <div>
@@ -34,5 +34,6 @@
 
 <script setup>
 const emit = defineEmits(['quit'])
+const level = ref('noobs')
 const props = defineProps(['userContent', 'historique'])
 </script>
