@@ -29,8 +29,8 @@
 
             <input v-model="registerForm.email" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4"
                 type="text" placeholder="Votre nom d’utilisateur">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text" placeholder="Votre nom">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+            <input v-model="registerForm.last_name" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text" placeholder="Votre nom">
+            <input v-model="registerForm.first_name" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre prénom">
             <span class="self-start">Votre date de naissance</span>
             <div class="flex">
@@ -47,9 +47,9 @@
                 </select>
 
             </div>
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+            <input v-model="registerForm.phone_number" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre numéro de téléphone">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+            <input v-model="registerForm.adresse_mail" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre adresse email">
             <input v-model="registerForm.password" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4"
                 type="password" placeholder="Votre mot de passe">
@@ -73,7 +73,7 @@ const props = defineProps(['showAuth'])
 const emit = defineEmits(['connexion', 'register'])
 
 const loginForm = ref({ email: 'teddy', password: '123456' })
-const registerForm = ref({ email: 'teddy', password: '123456' })
+const registerForm = ref({ email: 'teddy', password: '123456',first_name: '',last_name: '',phone_number:'',adresse_mail:'' })
 const month = ref(['Janvier', 'Fevrier', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'])
 
 import VueDatePicker from '@vuepic/vue-datepicker';
