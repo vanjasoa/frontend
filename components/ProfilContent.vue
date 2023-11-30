@@ -1,4 +1,11 @@
 <template>
+    <div class="flex ml-14">
+        <div class="fixed top-24 w-64">
+            <img src="../assets/images/MonComte.png" alt="">
+        </div>   
+    </div>
+
+
     <div class="flex flex-col p-2">
         <button @click="emit('quit')">
             <svg class="bg-black" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7,17 +14,34 @@
                     fill="white" />
             </svg>
         </button>
-        <div class="flex flex-col">
-            <h1 class="font-extrabold">{{ userContent.last_name }}</h1>
-            <h1 class="font-extrabold">{{ userContent.first_name }}</h1>
+        <div>
+
+            <div class="flex flex-col">
+                <div class="w-[60px] h-[60px]  border-4 border-white rounded-lg bg-slate-300">
+                    <svg  viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24 8C26.1217 8 28.1566 8.84285 29.6569 10.3431C31.1571 11.8434 32 13.8783 32 16C32 18.1217 31.1571 20.1566 29.6569 21.6569C28.1566 23.1571 26.1217 24 24 24C21.8783 24 19.8434 23.1571 18.3431 21.6569C16.8429 20.1566 16 18.1217 16 16C16 13.8783 16.8429 11.8434 18.3431 10.3431C19.8434 8.84285 21.8783 8 24 8ZM24 28C32.84 28 40 31.58 40 36V40H8V36C8 31.58 15.16 28 24 28Z"
+                            fill="white" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-extrabold">{{ userContent.last_name }}</h1>
+                    <h1 class="font-extrabold">{{ userContent.first_name }}</h1>
+                </div>
+
+
+            </div>
+
         </div>
-        <div class="rounded-md flex w-64 m-8">
+
+        <div class="rounded-md  w-64 m-8">
             
-            <div class="flex flex-col bg-[#960022] px-4 rounded-md w-64 mx-4 relative">
+            <div class="flex flex-col bg-[#960022] px-4 rounded-md w-64 mx-4">
                 <span class="text-white ml-5">Niveau</span>
                 <h1 class="ml-5 font-extrabold text-white text-3xl">{{ userContent.level }}</h1>
-                <img class="w-24 h-24 absolute mt-[-10px] ml-[-75px]" :src="level+'.png'" />
+            
             </div>
+            <img class="w-24 h-24  -ml-12 -mt-20" :src="level+'.png'" />
         </div>
         <div>
             <h2 class="font-extrabold">Historique des commandes</h2>

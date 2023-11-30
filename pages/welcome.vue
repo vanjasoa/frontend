@@ -100,6 +100,7 @@
       </div>
       <TipsAndTricks/>
       <Footer/>
+      <LevelsProgressBar></LevelsProgressBar>
     </div>
     <!-- <footer class="bg-tansparent">
 
