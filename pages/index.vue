@@ -7,6 +7,7 @@
   <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
   <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" />
   <ProjectDescriptionCard v-else @call-to-action="showAuth = 'register'" />
+  <Footer/>
 </template>
 
 <script setup>

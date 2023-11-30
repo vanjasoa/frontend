@@ -1,7 +1,7 @@
 <template>
   <div class=" flex flex-col h-screen">
-    <header class="z-0">
-      <TopNavigationBar>
+    <div class="fixed top-0  w-full ">
+      <MainNavigationBar>
         <template #logo>
           <NuxtImg @click="showContent = null" class="w-64 h-32" src="logo.png" />
         </template>
@@ -9,9 +9,9 @@
           <PointButton :point="user.point" />
           <AccountButton @click="ProfilShow" />
         </template>
-      </TopNavigationBar>
-    </header>
-    <main class="flex-1 overflow-y-auto z-40">
+      </MainNavigationBar>
+    </div>
+    <div class="mt-48 ">
       <MenuList v-if="showContent === null">
         <template #menulist>
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
@@ -92,14 +92,22 @@
         </ProfilContent>
 
       </div>
-    </main>
-    <footer class="bg-tansparent">
+      <div class="fixed bottom-0 left-0 w-full p-4 ">
+        <button @click="toggleCart">
+          <CartButtom :quantiter_produit="cart.itemsCount" />
+        </button>
+
+      </div>
+      <TipsAndTricks/>
+      <Footer/>
+    </div>
+    <!-- <footer class="bg-tansparent">
 
       <button @click="toggleCart">
         <CartButtom :quantiter_produit="cart.itemsCount" />
       </button>
 
-    </footer>
+    </footer> -->
 
     <CartModal v-if="showCart == true" :total-point="cart.itemsTotal" :title_cart="title_cart">
       <template #retour>
