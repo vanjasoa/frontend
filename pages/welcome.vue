@@ -285,15 +285,15 @@ watchEffect(() => {
   }
 });
 
-// Appeler la fonction de rafraîchissement toutes les 10 secondes
-const refreshIntervalId = setInterval(() => {
-  location.reload();
-}, 10000);
+// // Appeler la fonction de rafraîchissement toutes les 10 secondes
+// const refreshIntervalId = setInterval(() => {
+//   location.reload();
+// }, 10000);
 
-// Nettoyer l'intervalle lorsque le composant est détruit
-onBeforeUnmount(() => {
-  clearInterval(refreshIntervalId);
-});
+// // Nettoyer l'intervalle lorsque le composant est détruit
+// onBeforeUnmount(() => {
+//   clearInterval(refreshIntervalId);
+// });
 
 
 </script>
