@@ -42,17 +42,21 @@
                 placeholder="Votre adresse email">
             <input v-model="registerForm.password" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4"
                 type="password" placeholder="Votre mot de passe">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="password"
+            <input v-model="registerForm.confirmPassword"  class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="password"
                 placeholder="Ressaisir votre mot de passe">
             <div class="flex justify-between w-full">
                 <div>
-                    <input class="m-1" type="checkbox">
+                    <input v-model="registerForm.acceptTerms" class="m-1" type="checkbox">
                     <span class="font-extrabold m-1">J’accepte les Termes et Conditions</span>
                 </div>
 
             </div>
-            <button @click="emit('register', registerForm)"
-                class="w-full h-[70px] bg-[#E61B21] rounded-md text-white text-xl font-extrabold">S’inscrire</button>
+            <button @click="sendDataRegister"
+            :disabled="!isRegistrationValid || !registerForm.acceptTerms"
+                class="w-full h-[70px] rounded-md text-white text-xl font-extrabold 
+                     bg-[#E61B21] hover:bg-[#D21018] disabled:bg-gray-400 
+                     disabled:cursor-not-allowed">S’inscrire</button>
+                     <p v-if="!isPasswordMatch" class="text-red-500">Les mots de passe ne correspondent pas.</p>
         </div>
     </div>
 </template>
@@ -61,8 +65,28 @@
 const props = defineProps(['showAuth'])
 const emit = defineEmits(['connexion', 'register'])
 
-const loginForm = ref({ email: 'teddy', password: '123456' })
-const registerForm = ref({ email: '', password: '',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '' })
+const isRegistrationValid = computed(() => {
+  return (
+    registerForm.email !== '' &&
+    registerForm.password !== '' &&
+    registerForm.phone_number !== '' &&
+    registerForm.date_de_naissance !== ''
+  );
+});
 
+const loginForm = ref({ email: 'teddy', password: '123456' })
+const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false, })
+const isPasswordMatch = computed(() => {
+  return registerForm.password === registerForm.confirmPassword;
+});
+
+const sendDataRegister = () => {
+  if (isRegistrationValid.value) {
+    emit('register', registerForm.value);
+  } else {
+    // Afficher un message d'erreur ou prendre une action appropriée
+    console.error('Veuillez remplir tous les champs requis avant de vous inscrire.');
+  }
+};
 
 </script>
