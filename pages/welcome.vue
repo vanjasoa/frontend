@@ -278,5 +278,12 @@ const ProfilShow = () => {
 fetchProducts()
 fetchCommande()
 
+watchEffect(() => {
+  // Reset le panier lorsque showContent est null
+  if (showContent.value === null) {
+    cart.$reset();
+  }
+});
+
 
 </script>
