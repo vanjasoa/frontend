@@ -34,18 +34,7 @@
                 placeholder="Votre prénom">
             <span class="self-start">Votre date de naissance</span>
             <div class="flex">
-
-                <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="n in 30" value="volvo">{{ n }}</option>
-                </select>
-                <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="m in month" value="volvo">{{ m }}</option>
-                </select>
-                <select v-model="birthYear" id="birthYear"
-                    class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-                </select>
-
+                <DateSelect v-model="registerForm.date_de_naissance" />
             </div>
             <input v-model="registerForm.phone_number" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre numéro de téléphone">
@@ -73,22 +62,7 @@ const props = defineProps(['showAuth'])
 const emit = defineEmits(['connexion', 'register'])
 
 const loginForm = ref({ email: 'teddy', password: '123456' })
-const registerForm = ref({ email: 'teddy', password: '123456',first_name: '',last_name: '',phone_number:'',adresse_mail:'' })
-const month = ref(['Janvier', 'Fevrier', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'])
+const registerForm = ref({ email: '', password: '',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '' })
 
-import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
-
-const startYear = 1900;
-const currentYear = new Date().getFullYear();
-const years = computed(() => {
-  const result = [];
-  for (let year = currentYear; year >= startYear; year--) {
-    result.push(year);
-  }
-  return result;
-});
-
-const birthYear = ref('2023');
 
 </script>
