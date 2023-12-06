@@ -1,22 +1,14 @@
 <template>
-<<<<<<< HEAD
     <div class="bg-red-600">
         <div class="m-10 text-red-600"><h1>test</h1></div>
-=======
-    <div class="bg-red-500">
-        <div class="m-10 text-red-500"><h1>test</h1></div>
->>>>>>> 8d2f845ec086e4616c893b50d153cfaec25c8866
+
         <div class="ml-28 ">
             <img src="../assets/images/avantage.png" class="w-40  object-cover" alt="">
         </div>
        
        
-
-<<<<<<< HEAD
-        <div id="controls-carousel" class="relative w-full " data-carousel="slide">
-=======
         <div id="controls-carousel" class="relative w-full" data-carousel="slide">
->>>>>>> 8d2f845ec086e4616c893b50d153cfaec25c8866
+
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
@@ -46,14 +38,10 @@
                 </span>
             </button>
         </div>
-<<<<<<< HEAD
         <div class="text-center ">
             <button class="bg-white text-black p-4 rounded-md font-bold pl-20 pr-20">Voir les avantages</button>
             <p class="m-6 text-red-600">e</p>
-=======
-        <div>
-            <button class="bg-white text-black p-4 rounded-md">Voir les avantages</button>
->>>>>>> 8d2f845ec086e4616c893b50d153cfaec25c8866
+
         </div>
     </div>
 </template>

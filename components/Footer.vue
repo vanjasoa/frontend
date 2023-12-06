@@ -23,7 +23,7 @@
             </div>
             <div class="mt-6 text-left">
                 <h1>Email</h1> 
-                <h4 class="font-bold">contact@gastropizza.com</h4>
+                <h4 class="font-bold">contact@lagastronomiepizza.com</h4>
             </div>
 
         </div>

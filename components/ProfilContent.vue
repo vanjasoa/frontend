@@ -1,6 +1,6 @@
 <template>
     <div class="flex ml-14">
-        <div class="fixed top-24 w-64">
+        <div class="fixed top-24 w-64 z-50">
             <img src="../assets/images/MonComte.png" alt="">
         </div>   
     </div>
@@ -44,13 +44,10 @@
             </div>
             <img class="w-24 h-24  -ml-12 -mt-20" :src="userContent.level+'.png'" />
         </div>
-        <div>   formatDate(date) {
-      return moment(date).format('DD/MM/YYYY HH:mm:ss'); // Choisissez le format de date souhaité
-    },
+        <div>  
             <h2 class="font-extrabold">Historique des commandes</h2>
             <ul v-for="commande in props.historique">
                 <li class="border-2 border-black p-2 rounded-md m-2">
-
                     {{ formatDate(commande.date_created) }}
                     <span v-if="commande.status == 'paid' " class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
                         <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
