@@ -100,7 +100,6 @@
       </div>
       <TipsAndTricks/>
       <Footer/>
-      <LevelsProgressBar></LevelsProgressBar>
     </div>
     <!-- <footer class="bg-tansparent">
 
@@ -278,6 +277,23 @@ const ProfilShow = () => {
 
 fetchProducts()
 fetchCommande()
+
+watchEffect(() => {
+  // Reset le panier lorsque showContent est null
+  if (showContent.value === null) {
+    cart.$reset();
+  }
+});
+
+// // Appeler la fonction de rafraîchissement toutes les 10 secondes
+// const refreshIntervalId = setInterval(() => {
+//   location.reload();
+// }, 10000);
+
+// // Nettoyer l'intervalle lorsque le composant est détruit
+// onBeforeUnmount(() => {
+//   clearInterval(refreshIntervalId);
+// });
 
 
 </script>

@@ -29,41 +29,34 @@
 
             <input v-model="registerForm.email" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4"
                 type="text" placeholder="Votre nom d’utilisateur">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text" placeholder="Votre nom">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+            <input v-model="registerForm.last_name" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text" placeholder="Votre nom">
+            <input v-model="registerForm.first_name" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre prénom">
             <span class="self-start">Votre date de naissance</span>
             <div class="flex">
-
-                <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="n in 30" value="volvo">{{ n }}</option>
-                </select>
-                <select class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="m in month" value="volvo">{{ m }}</option>
-                </select>
-                <select v-model="birthYear" id="birthYear"
-                    class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
-                    <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-                </select>
-
+                <DateSelect v-model="registerForm.date_de_naissance" />
             </div>
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+            <input v-model="registerForm.phone_number" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre numéro de téléphone">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+            <input v-model="registerForm.adresse_mail" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre adresse email">
             <input v-model="registerForm.password" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4"
                 type="password" placeholder="Votre mot de passe">
-            <input class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="password"
+            <input v-model="registerForm.confirmPassword"  class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="password"
                 placeholder="Ressaisir votre mot de passe">
             <div class="flex justify-between w-full">
                 <div>
-                    <input class="m-1" type="checkbox">
+                    <input v-model="registerForm.acceptTerms" class="m-1" type="checkbox">
                     <span class="font-extrabold m-1">J’accepte les Termes et Conditions</span>
                 </div>
 
             </div>
-            <button @click="emit('register', registerForm)"
-                class="w-full h-[70px] bg-[#E61B21] rounded-md text-white text-xl font-extrabold">S’inscrire</button>
+            <button @click="sendDataRegister"
+            :disabled="!isRegistrationValid || !registerForm.acceptTerms"
+                class="w-full h-[70px] rounded-md text-white text-xl font-extrabold 
+                     bg-[#E61B21] hover:bg-[#D21018] disabled:bg-gray-400 
+                     disabled:cursor-not-allowed">S’inscrire</button>
+                     <p v-if="!isPasswordMatch" class="text-red-500">Les mots de passe ne correspondent pas.</p>
         </div>
     </div>
 </template>
@@ -72,23 +65,28 @@
 const props = defineProps(['showAuth'])
 const emit = defineEmits(['connexion', 'register'])
 
-const loginForm = ref({ email: 'teddy', password: '123456' })
-const registerForm = ref({ email: 'teddy', password: '123456' })
-const month = ref(['Janvier', 'Fevrier', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'])
-
-import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
-
-const startYear = 1900;
-const currentYear = new Date().getFullYear();
-const years = computed(() => {
-  const result = [];
-  for (let year = currentYear; year >= startYear; year--) {
-    result.push(year);
-  }
-  return result;
+const isRegistrationValid = computed(() => {
+  return (
+    registerForm.email !== '' &&
+    registerForm.password !== '' &&
+    registerForm.phone_number !== '' &&
+    registerForm.date_de_naissance !== ''
+  );
 });
 
-const birthYear = ref('2023');
+const loginForm = ref({ email: 'teddy', password: '123456' })
+const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false, })
+const isPasswordMatch = computed(() => {
+  return registerForm.password === registerForm.confirmPassword;
+});
+
+const sendDataRegister = () => {
+  if (isRegistrationValid.value) {
+    emit('register', registerForm.value);
+  } else {
+    // Afficher un message d'erreur ou prendre une action appropriée
+    console.error('Veuillez remplir tous les champs requis avant de vous inscrire.');
+  }
+};
 
 </script>

@@ -17,7 +17,6 @@ const showAuth = ref(null)
 const { login, createUser } = useDirectusAuth();
 
 const router = useRouter();
-//const { createUsers } = useDirectusUsers();
 
 const onSubmit = async (logindata) => {
   try {
@@ -30,9 +29,19 @@ const onSubmit = async (logindata) => {
 };
 
 const onRegister = async (registerdata) => {
+  
   try {
 
-    const newUser = await createUser({ email: registerdata.email + '@mail.com', password: registerdata.password, role: 'f8fc491a-643b-47fd-a929-18b4c6b35a17' });
+    const newUser = await createUser({ 
+      email: registerdata.email + '@mail.com', 
+      password: registerdata.password, 
+      role: 'f8fc491a-643b-47fd-a929-18b4c6b35a17',
+      last_name: registerdata.last_name,
+      first_name: registerdata.first_name,
+      phone_number: registerdata.phone_number,
+      adresse_mail:registerdata.adresse_mail,
+      date_de_naissance: registerdata.date_de_naissance
+     });
     showAuth.value = 'login';
   } catch (e) {
   }
