@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-[109px] h-[109px] relative">
+    <div class="flex flex-col w-[109px] h-[109px] ">
         <svg viewBox="0 0 124 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_99_698)">
                 <path
@@ -22,7 +22,7 @@
                 </filter>
             </defs>
         </svg>
-        <span class="absolute text-md mt-11 ml-12 text-white font-extrabold">{{ props.point }}</span>
+        <span class=" text-md -mt-14 ml-12 text-white font-extrabold">{{ props.point }}</span>
     </div>
 </template>
 

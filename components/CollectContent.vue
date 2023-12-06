@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col items-center">
-        <div class="mt-[-50px] z-10">
+        <div class=" ">
             <slot name="retour" />
         </div>
 

@@ -1,6 +1,6 @@
 <template>
   <div class=" flex flex-col h-screen">
-    <div class="fixed top-0  w-full ">
+    <div class="fixed top-0  w-full z-40">
       <MainNavigationBar>
         <template #logo>
           <NuxtImg @click="showContent = null" class="w-64 h-32" src="logo.png" />
