@@ -3,4 +3,5 @@
         <h1 class="font-extrabold text-2xl m-4">Que voulez-vous faire ?</h1>
         <slot name="menulist" />
     </div>
+    <slot name="avantages" />
 </template>

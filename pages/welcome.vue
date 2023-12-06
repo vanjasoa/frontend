@@ -17,7 +17,12 @@
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
             :color="item.color" />
         </template>
+        <template #avantages>
+          <TipsAndTricks/>
+        </template>
+        
       </MenuList>
+      
 
       <div v-else>
 
@@ -61,7 +66,7 @@
             <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null"
               :category-available="level.categories" :user-points="user.point">
               <template #image>
-                <img :src="level.name+'.png'" />
+                <img class="h-32 w-36" :src="level.name+'.png'" />
               </template>
               <template #category>
                 <CategoryCard v-for="category in level.categories" :name="category" @click="selectCategory(category)" />
@@ -96,9 +101,7 @@
         <button @click="toggleCart">
           <CartButtom :quantiter_produit="cart.itemsCount" />
         </button>
-
       </div>
-      <TipsAndTricks/>
       <Footer/>
     </div>
     <!-- <footer class="bg-tansparent">
