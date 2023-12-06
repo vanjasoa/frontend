@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col justify-center items-center">
         <div class="mt-[-50px] flex flex-col items-center">
-            <slot name="retour" />
+            <slot class="relative"  name="retour" />
             <h2 class="font-extrabold text-xl m-4">
                 Qu’est ce qui est <span class="text-red-600">mieux</span> qu'une pizza ?
                 Une pizza <span class="text-red-600">gratuite</span>.

@@ -1,21 +1,35 @@
 <template>
-    <div class="flex flex-col w-full h-128 border-4 border-black rounded-lg relative shadow-md">
+    <!-- <div class="flex flex-col w-full h-128 border-4 border-black rounded-lg  shadow-md">
 
-        <div class="absolute top-0 mt-[-60px] ml-28">
+        <div class=" top-0 mt-[-60px] ml-28">
             <slot name="point" />
         </div>
 
-        <div class="flex flex-col w-full p-4">
-            <NuxtImg class="w-full rounded-md" :src="img(props.product.image)"/>
-            <div class="m-1">
-                <h1 class="text-xl font-extrabold">{{ props.product.name }}</h1>
-                <h2 class="text-green-500 font-extrabold">{{ props.product.prix }} AR</h2>
-                <h3>Pour 3 personnes </h3>
+    </div> -->
+    <div class="flex">
+        <div class="mb-64 ">
+
+            <div class=" text-center p-1 border-2  border-black rounded-lg  shadow-md h-72 w-32  ">
+
+                <NuxtImg class="w-full rounded-md  h-32" :src="img(props.product.image)"/>
+                <div class="m-1">
+                    <p class=" font-bold">{{ props.product.name }}</p>
+                    <h2 class="text-green-500 font-extrabold">{{ props.product.prix }} AR</h2>
+                </div>
+                <button class=" bg-black text-white text-xs font-bold rounded-md  p-2 " @click="emit('addProduct',product)">Ajouter au panier</button>
+                
             </div>
-            <button class="border-2 border-black rounded-xl h-[40px] w-full active:bg-slate-400" @click="emit('addProduct',product)">Ajouter au panier</button>
+            <div class="-mt-80 ml-20 absolute ">
+                    <slot name="point" />
+            </div>
+
         </div>
 
+        
     </div>
+
+
+
 </template>
 
 <script setup>

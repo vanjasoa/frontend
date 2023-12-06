@@ -1,7 +1,7 @@
 <template>
-    <div class="w-full h-[481px] border-2 border-[#F5BF50] rounded-xl my-32 bg-white shadow-lg flex flex-col">
+    <div class="w-full h-[450px] border-2 border-[#F5BF50] rounded-xl my-32 bg-white shadow-lg flex flex-col">
       <div class="flex justify-around">
-        <div class="self-start mb-8 mt-[-100px] w-full h-[230px]">
+        <div class="self-start mb-8 mt-[-70px] h-32 w-32 ">
           <slot name="image" />
         </div>
         <div class="flex self-end mb-4">
@@ -15,7 +15,7 @@
       
         <ul class="flex w-full p-4 justify-center" >
           <li class="m-1" v-for="category in props.categoryAvailable">
-            <img class="rounded" :src="category+'.jpeg'" alt="">
+            <img  class="rounded max-w-32 max-h-32" :src="category+'.jpeg'" alt="">
           </li>
         </ul>
       

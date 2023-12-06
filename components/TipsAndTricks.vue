@@ -1,13 +1,14 @@
 <template>
-    <div class="bg-red-500">
-        <div class="m-10 text-red-500"><h1>test</h1></div>
+    <div class="bg-red-600">
+        <div class="m-10 text-red-600"><h1>test</h1></div>
+
         <div class="ml-28 ">
             <img src="../assets/images/avantage.png" class="w-40  object-cover" alt="">
         </div>
        
        
-
         <div id="controls-carousel" class="relative w-full" data-carousel="slide">
+
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
@@ -37,8 +38,10 @@
                 </span>
             </button>
         </div>
-        <div>
-            <button class="bg-white text-black p-4 rounded-md">Voir les avantages</button>
+        <div class="text-center ">
+            <button class="bg-white text-black p-4 rounded-md font-bold pl-20 pr-20">Voir les avantages</button>
+            <p class="m-6 text-red-600">e</p>
+
         </div>
     </div>
 </template>
