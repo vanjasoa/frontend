@@ -38,6 +38,8 @@
             </div>
             <input v-model="registerForm.phone_number" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre numéro de téléphone">
+            <input v-model="registerForm.lieu_residence" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
+                placeholder="Votre lieu de residence">    
             <input v-model="registerForm.adresse_mail" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4" type="text"
                 placeholder="Votre adresse email">
             <input v-model="registerForm.password" class="w-full h-[70px] bg-[#F8F8F8] border-2 rounded-md my-1 px-4"
@@ -75,7 +77,7 @@ const isRegistrationValid = computed(() => {
 });
 
 const loginForm = ref({ email: 'teddy', password: '123456' })
-const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false, })
+const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false,lieu_residence:'' })
 const isPasswordMatch = computed(() => {
   return registerForm.password === registerForm.confirmPassword;
 });

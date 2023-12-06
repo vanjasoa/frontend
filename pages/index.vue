@@ -40,7 +40,8 @@ const onRegister = async (registerdata) => {
       first_name: registerdata.first_name,
       phone_number: registerdata.phone_number,
       adresse_mail:registerdata.adresse_mail,
-      date_de_naissance: registerdata.date_de_naissance
+      date_de_naissance: registerdata.date_de_naissance,
+      lieu_residence: registerdata.lieu_residence
      });
     showAuth.value = 'login';
   } catch (e) {
