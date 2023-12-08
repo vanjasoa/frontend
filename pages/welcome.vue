@@ -1,5 +1,5 @@
 <template>
-  <div class=" flex flex-col h-screen">
+  <div class=" flex flex-col text-center font-poppins h-screen">
     <div class="fixed top-0  w-full z-40">
       <MainNavigationBar>
         <template #logo>
@@ -97,7 +97,7 @@
         </ProfilContent>
 
       </div>
-      <div class="fixed bottom-0 left-0 w-full p-4 ">
+      <div class="fixed bottom-5 right-2 p-4 ">
         <button @click="toggleCart">
           <CartButtom :quantiter_produit="cart.itemsCount" />
         </button>

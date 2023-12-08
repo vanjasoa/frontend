@@ -1,12 +1,12 @@
 <template>
-    <div class="flex ml-14">
+    <div class="flex ml-14 font-poppins">
         <div class="fixed top-24 w-64 z-50">
             <img src="../assets/images/MonComte.png" alt="">
         </div>   
     </div>
 
 
-    <div class="flex flex-col p-2">
+    <div class="flex flex-col p-2 font-poppins ">
 
         <div>
             <div class="flex mt-8">

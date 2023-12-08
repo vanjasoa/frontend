@@ -1,5 +1,5 @@
 <template>
-    <div class="border-2 w-full h-[140px] mx-2 rounded-md">
+    <div class="border-2 w-full h-[140px] mx-2 rounded-md font-poppins">
         <img :src="pub+'.jpeg'" alt="">
     </div>
 </template>

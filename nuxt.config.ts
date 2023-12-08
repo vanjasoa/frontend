@@ -9,8 +9,13 @@ export default defineNuxtConfig({
     'nuxt-svgo',
     '@nuxt/image',
     '@pinia/nuxt',
+    '@nuxtjs/google-fonts',
   ],
-
+  googleFonts: {
+    families: {
+      Poppins: [400, 600, 700],
+    }
+  },
   directus: {
     url: "https://directus-production-2a05.up.railway.app/"
   },

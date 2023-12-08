@@ -6,7 +6,7 @@
         </div>
 
     </div> -->
-    <div class="flex">
+    <div class="flex font-poppins">
         <div class="mb-64 ">
 
             <div class=" text-center p-1 border-2  border-black rounded-lg  shadow-md h-72 w-32  ">

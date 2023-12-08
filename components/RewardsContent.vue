@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center font-poppins">
         <div class="mt-[-50px] flex flex-col items-center">
             <slot class="relative"  name="retour" />
             <h2 class="font-extrabold text-xl m-4">

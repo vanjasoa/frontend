@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center mx-16 lg:w-1/2">
+    <div class="flex flex-col items-center mx-16 lg:w-1/2 font-poppins">
         <div class="w-full lg:w-1/2">
             <svg viewBox="0 0 492 223" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_71_900)">

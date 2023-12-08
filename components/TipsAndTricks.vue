@@ -1,7 +1,6 @@
 <template>
-    <div class="bg-red-600">
+    <div class="bg-red-600 font-poppins">
         <div class="m-10 text-red-600"><h1>test</h1></div>
-
         <div class="ml-28 ">
             <img src="../assets/images/avantage.png" class="w-40  object-cover" alt="">
         </div>

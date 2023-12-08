@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-[450px] border-2 border-[#F5BF50] rounded-xl my-32 bg-white shadow-lg flex flex-col">
+    <div class="w-full h-[450px] border-2 border-[#F5BF50] rounded-xl my-32 bg-white shadow-lg flex flex-col font-poppins">
       <div class="flex justify-around">
         <div class="self-start mb-8 mt-[-70px] h-32 w-32 ">
           <slot name="image" />
@@ -25,7 +25,7 @@
           </button>
       </div>
     </div>
-    <div class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-white" v-if="showRewards === true">
+    <div class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-white font-poppins" v-if="showRewards === true">
       <div class="flex p-4">
         <slot name="category" />
       </div>      

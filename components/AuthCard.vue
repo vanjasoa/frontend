@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="font-poppins">
         <div v-if="props.showAuth === 'login'" class="flex flex-col m-8 lg:w-1/3">
             <h1 class="font-extrabold text-4xl mx-auto">BIENVENUE</h1>
             <p class="text-xl mx-auto my-1">

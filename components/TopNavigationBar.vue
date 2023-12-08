@@ -8,7 +8,7 @@
             <slot name="profil" />
         </div>v>-->
     <img src="../assets/images/header.png" alt="">
-    <div class="flex items-center justify-center">
+    <div class="flex items-center font-poppins justify-center">
         <div class="w-40 h-18 -mt-48 object-cover">
             <slot name="logo" />
         </div>

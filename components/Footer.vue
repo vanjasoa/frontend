@@ -1,6 +1,6 @@
 <template>
-  <div class=" bg-black text-white text-center justify-center">
-    <div class="m-6">
+  <div class=" bg-black text-white text-center font-poppins text-sm justify-center">
+    <div class="m-6 font-poppins text-sm">
         <div class="flex  ">
             <div class="mt-20 mx-6">
                 <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,14 +23,14 @@
             </div>
             <div class="mt-6 text-left">
                 <h1>Email</h1> 
-                <h4 class="font-bold">contact@lagastronomiepizza.com</h4>
+                <h4 class="font-bold">contact@lagastro</h4>
             </div>
 
         </div>
 
     </div>
     <hr class="text-gray-500">
-    <div >
+    <div class="text-center font-poppins" >
         <h1 class="m-8">Rejoignez-nous sur</h1>
         <div class="flex items-center m-6 ">
             <a href="" id="facebook" class="m-2">

@@ -1,6 +1,6 @@
 <template>
     <div v-for="[name, items] in Object.entries(productCart.groupedItems)">
-        <div class="flex justify-around">
+        <div class="flex justify-around font-poppins">
             <div class="flex ">
                 <span class="text-md font-extrabold">{{ name }}</span>
                 <span class="text-green-500">{{ items.map((i) => i.prix)[0] }} Ariary</span>
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="border-2 border-black rounded-lg w-full p-4 flex flex-col text-center">
+    <div class="border-2 border-black rounded-lg w-full p-4 flex flex-col text-center font-poppins">
         <div class="flex justify-between">
             <span class="font-extrabold">Total</span>
             <span class="text-green-500 font-extrabold text-xl">{{ productCart.items.map((p) => p.prix).reduce((acc,

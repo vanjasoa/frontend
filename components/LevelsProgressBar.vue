@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-[400px] border-4">
+    <div class="w-full h-[400px] border-4 font-poppins">
         <div class="flex justify-between mx-16">
             <div class="w-[150px] h-[150px]">
                 <slot name="level" />
