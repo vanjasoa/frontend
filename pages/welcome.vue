@@ -11,7 +11,7 @@
         </template>
       </MainNavigationBar>
     </div>
-    <div class="mt-48 ">
+    <div class="mt-48 sm:mt-72 ">
       <MenuList v-if="showContent === null">
         <template #menulist>
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
@@ -28,8 +28,7 @@
 
         <CollectContent v-if="itemsMenu[showContent].title == 'Je collecte'">
           <template #retour>
-            <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
-              :color="itemsMenu[showContent].color" />
+              <button @click="showContent = null" :name="itemsMenu[showContent].title"><img src="../assets/images/jecollecte.png" alt=""></button>
           </template>
           <template #category>
             <CategoryCard v-for="category in categoryList" :name="category" v-if="selectedCategory === null"
@@ -52,15 +51,14 @@
 
         <QrCodeContent v-if="itemsMenu[showContent].title == 'Mon QR'" :id_client="user.id">
           <template #retour>
-            <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
-              :color="itemsMenu[showContent].color" />
+            <button @click="showContent = null" :name="itemsMenu[showContent].title"> <img src="../assets/images/monqr.png" alt=""></button>
           </template>
+
         </QrCodeContent>
 
         <RewardsContent v-if="itemsMenu[showContent].title == 'Mes recompenses'">
           <template #retour>
-            <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
-              :color="itemsMenu[showContent].color" />
+            <button @click="showContent = null" :name="itemsMenu[showContent].title"><img src="../assets/images/mesrecomponse.png" alt=""></button>
           </template>
           <template #levels>
             <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null"
@@ -97,7 +95,7 @@
         </ProfilContent>
 
       </div>
-      <div class="fixed bottom-5 right-2 p-4 ">
+      <div class="fixed bottom-5 right-2 p-4  z-40 ">
         <button @click="toggleCart">
           <CartButtom :quantiter_produit="cart.itemsCount" />
         </button>

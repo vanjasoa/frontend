@@ -7,9 +7,9 @@
         <div class="flex justify-end items-center m-4">
             <slot name="profil" />
         </div>v>-->
-    <img src="../assets/images/header.png" alt="">
+    <img class="w-full md:h-64" src="../assets/images/header.png" alt="">
     <div class="flex items-center font-poppins justify-center">
-        <div class="w-40 h-18 -mt-48 object-cover">
+        <div class="w-48 h-16 -mt-64 object-cover">
             <slot name="logo" />
         </div>
             

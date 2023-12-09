@@ -1,15 +1,15 @@
 <template>
-    <select v-model="selectedDay" :id="dayId" class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
+    <select v-model="selectedDay" :id="dayId" class="w-1/3 placeholder:text-slate-400 block bg-white  border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs">
         <option v-for="day in days" :key="day">{{ day }}</option>
     </select>
 
 
-    <select v-model="selectedMonth" :id="monthId" class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
+    <select v-model="selectedMonth" :id="monthId" class="w-1/3 mx-2 placeholder:text-slate-400 block bg-white  border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs">
         <option v-for="(month, index) in monthNames" :key="index + 1" :value="index + 1">{{ month }}</option>
     </select>
 
 
-    <select v-model="selectedYear" :id="yearId" class="w-1/3 h-[70px] bg-[#F8F8F8] border-2 rounded-md m-1 px-4">
+    <select v-model="selectedYear" :id="yearId" class="w-1/3 placeholder:text-slate-400 block bg-white  border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs">
         <option v-for="year in years" :key="year">{{ year }}</option>
     </select>
 

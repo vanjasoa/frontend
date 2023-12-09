@@ -1,9 +1,9 @@
 <template>
-    <div class="flex flex-col justify-center items-center  z-10 font-poppins">
-        <div class="mt-[-50px]">
+    <div class="flex flex-col justify-center items-center   font-poppins">
+        <div class="fixed z-40 -mt-96  w-40 md:w-72">
             <slot name="retour" />
         </div>
-        <div class="my-16">
+        <div >
             <!--QRCodeVue3 :width="250" :height="250" :value="id_client"
                 :qrOptions="{ typeNumber: 0, mode: 'Byte', errorCorrectionLevel: 'H' }"
                 :imageOptions="{ hideBackgroundDots: true, imageSize: 0.4, margin: 0 }" :dotsOptions="{
@@ -22,10 +22,10 @@
                 imgclass="img-qr" downloadButton="my-button" :downloadOptions="{ name: 'vqr', extension: 'png' }"
                 :ButtonName="button_name"
                  /-->
-                 <qrcode-vue :value="id_client" :size="size" level="H" />
+                 <qrcode-vue class="mt-32" :value="id_client" :size="size" level="H" />
 
         </div>
-        <h1 class="text-xl font-extrabold">Présentez votre pass</h1>
+        <h1 class="font-bold mt-8">Présentez votre pass</h1>
     </div>
 </template>
 
