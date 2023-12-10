@@ -1,10 +1,12 @@
 <template>
-    <div class="bg-red-600">
+    <div class="bg-red-600  font-poppins">
         <div class="m-10 text-red-600"><h1>test</h1></div>
-
-        <div class="ml-28 ">
+        <div class="flex flex-col items-center">
+            <div class=" ">
             <img src="../assets/images/avantage.png" class="w-40  object-cover" alt="">
         </div>
+        </div>
+
        
        
         <div id="controls-carousel" class="relative w-full" data-carousel="slide">
@@ -14,9 +16,9 @@
                 <!-- Item 1 -->
                 <div class=" duration-700 ease-in-out" data-carousel-item> 
                     <div class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2  text-white text-center">
-                        <h4 class="font-bold">Tips et Astuces</h4>
-                        <p class="text-sm mt-4 ">Utiliser ce programme de fidélité pour </p>
-                        <p class="text-sm ">acheter vos produits et gagnez des points </p>
+                        <h4 class="font-bold ">Tips et Astuces</h4>
+                        <p class="text-xs mt-4 ">Utiliser ce programme de fidélité pour </p>
+                        <p class="text-xs ">acheter vos produits et gagnez des points </p>
                     </div>
                 </div>
             </div>

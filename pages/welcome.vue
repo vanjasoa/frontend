@@ -1,5 +1,5 @@
 <template>
-  <div class=" flex flex-col h-screen">
+  <div class=" flex flex-col text-center font-poppins h-screen">
     <div class="fixed top-0  w-full z-40">
       <MainNavigationBar>
         <template #logo>
@@ -11,7 +11,7 @@
         </template>
       </MainNavigationBar>
     </div>
-    <div class="mt-48 ">
+    <div class="mt-48 sm:mt-72 ">
       <MenuList v-if="showContent === null">
         <template #menulist>
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
@@ -20,16 +20,15 @@
         <template #avantages>
           <TipsAndTricks/>
         </template>
-        
+
       </MenuList>
-      
+
 
       <div v-else>
 
         <CollectContent v-if="itemsMenu[showContent].title == 'Je collecte'">
           <template #retour>
-            <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
-              :color="itemsMenu[showContent].color" />
+              <button @click="showContent = null" :name="itemsMenu[showContent].title"><img src="../assets/images/jecollecte.png" alt=""></button>
           </template>
           <template #category>
             <CategoryCard v-for="category in categoryList" :name="category" v-if="selectedCategory === null"
@@ -41,23 +40,21 @@
           <template #productlist>
             <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
               @add-product="addProduct" v-if="selectedCategory">
-
             </ProductCard>
-            <button v-if="selectedCategory" @click="selectedCategory = null">retour category</button>
+            <BackCategoryButton v-if="selectedCategory" @click="selectedCategory = null"></BackCategoryButton>
           </template>
         </CollectContent>
 
         <QrCodeContent v-if="itemsMenu[showContent].title == 'Mon QR'" :id_client="user.id">
           <template #retour>
-            <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
-              :color="itemsMenu[showContent].color" />
+            <button @click="showContent = null" :name="itemsMenu[showContent].title"> <img src="../assets/images/monqr.png" alt=""></button>
           </template>
+
         </QrCodeContent>
 
         <RewardsContent v-if="itemsMenu[showContent].title == 'Mes recompenses'">
           <template #retour>
-            <MenuButton @click="showContent = null" :name="itemsMenu[showContent].title"
-              :color="itemsMenu[showContent].color" />
+            <button @click="showContent = null" :name="itemsMenu[showContent].title"><img src="../assets/images/mesrecomponse.png" alt=""></button>
           </template>
           <template #levels>
             <LevelsCard v-for="level in rewardLevels" :level="level" v-if="selectedCategory === null"
@@ -94,7 +91,7 @@
         </ProfilContent>
 
       </div>
-      <div class="fixed bottom-0 left-0 w-full p-4 ">
+      <div class="fixed bottom-5 right-2 p-4  z-40 ">
         <button @click="toggleCart">
           <CartButtom :quantiter_produit="cart.itemsCount" />
         </button>
@@ -109,7 +106,7 @@
 
     </footer> -->
 
-    <CartModal v-if="showCart == true" :total-point="cart.itemsTotal" :title_cart="title_cart">
+    <CartModal v-if="showCart == true" :total-point="user.point" :title_cart="title_cart">
       <template #retour>
         <button @click="showCart = false">
           <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +118,7 @@
         </button>
       </template>
       <template #cart>
-        <CartContent :productCart="cart" @saveCart="sendCart" />
+        <CartContent :point="user.point" :productCart="cart" @saveCart="sendCart" />
       </template>
     </CartModal>
 
