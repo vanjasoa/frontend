@@ -1,6 +1,6 @@
 <template>
     <div class="border-2 w-full  mx-2 rounded-md font-poppins">
-        <img class="object-cover rounded-md" :src="pub+'.jpeg'" alt="">
+        <img class="object-cover w-full rounded-md" :src="pub+'.jpeg'" alt="">
     </div>
 </template>
 
