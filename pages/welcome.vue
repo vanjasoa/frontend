@@ -20,9 +20,9 @@
         <template #avantages>
           <TipsAndTricks/>
         </template>
-        
+
       </MenuList>
-      
+
 
       <div v-else>
 
@@ -109,7 +109,7 @@
 
     </footer> -->
 
-    <CartModal v-if="showCart == true" :total-point="cart.itemsTotal" :title_cart="title_cart">
+    <CartModal v-if="showCart == true" :total-point="user.point" :title_cart="title_cart">
       <template #retour>
         <button @click="showCart = false">
           <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@
         </button>
       </template>
       <template #cart>
-        <CartContent :productCart="cart" @saveCart="sendCart" />
+        <CartContent :point="user.point" :productCart="cart" @saveCart="sendCart" />
       </template>
     </CartModal>
 
