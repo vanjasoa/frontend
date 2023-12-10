@@ -15,7 +15,7 @@
       
         <ul class="flex w-full p-4 justify-center" >
           <li class="m-1" v-for="category in props.categoryAvailable">
-            <img  class="rounded max-w-32 max-h-32" :src="category+'.jpeg'" alt="">
+            <img  class="rounded w-36 max-h-32" :src="category+'.jpeg'" alt="">
           </li>
         </ul>
       

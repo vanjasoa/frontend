@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-center items-center font-poppins">
+    <div class="flex flex-col justify-center items-center font-poppins p-4">
         <div class=" w-40 md:w-72">
             <slot   name="retour" />
         </div>

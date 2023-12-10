@@ -1,7 +1,7 @@
 <template>
   <div v-if="props.name === 'Profil'"></div>
   <div v-else class=" flex flex-col items-center ">
-    <div class="w-56  relative z-20 ">
+    <div class="w-56 relative z-20 ">
       <svg viewBox="0 0 370 340" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="shadow-2xl"
                     d="M6.06071 270.317L89.215 245.389L102.423 289.447L19.2686 314.375L32.8931 287.726L33.7652 286.021L32.0986 285.076L6.06071 270.317Z"
@@ -132,7 +132,7 @@
                 </defs>
             </svg>
     </div>
-    <div class=" w-full relative  -mt-72 z-10">
+    <div class=" w-full relative  -mt-64 z-10">
       <svg
         width="370"
         height="340"

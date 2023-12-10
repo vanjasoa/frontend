@@ -22,7 +22,7 @@
                 </filter>
             </defs>
         </svg>
-        <span class=" text-md -mt-12 ml-8 text-white font-extrabold">{{ props.point }}</span>
+        <span class=" text-md -mt-12  text-white font-extrabold">{{ props.point }}</span>
     </div>
 </template>
 

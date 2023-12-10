@@ -71,7 +71,7 @@
 
     </div>
     <hr class="text-gray-500">
-    <div class="m-8 mb-8" >
+    <div class="mt-8" >
         <ul>
             <li class="m-4">Politique de confidentialité</li>
             <li class="m-4">Condition d'utilisation</li>
@@ -79,12 +79,15 @@
             <li class="m-4">Cookies et Données</li>
 
         </ul>
-      <span class="text-sm text-gray-500 sm:text-center "
+      <span class="text-xs text-gray-500 sm:text-center "
         >© 2023
         <a href="https://flowbite.com/" class="hover:underline"
           >GastronomiePizza</a
         >. Tous droits réservé.</span
       >
+    </div>
+    <div class="mt-2 text-black">
+        <p>t</p>
     </div>
   </div>
 </template>

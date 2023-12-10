@@ -1,4 +1,5 @@
 <template>
+
     <div class="flex flex-col items-center font-poppins">
         <div  class="fixed z-40 -mt-24  md:-mt-44 w-40 md:w-72">
 
@@ -12,7 +13,7 @@
             <slot name="pub" />
         </div>
         <div class="flex flex-col w-full">
-            <div class="grid grid-cols-2 gap-8 p-4">
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 p-4">
                 <slot name="productlist" />
             </div>
         </div>
