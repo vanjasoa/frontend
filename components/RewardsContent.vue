@@ -6,6 +6,7 @@
         <div class=" flex flex-col items-center">
             
             <h2 class="font-bold mt-6">
+
                 Qu’est ce qui est <span class="text-red-600">mieux</span> qu'une pizza ?
                 Une pizza <span class="text-red-600">gratuite</span>.
             </h2>

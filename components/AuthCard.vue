@@ -39,6 +39,7 @@
             <input v-model="registerForm.phone_number" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
                 placeholder="Votre numéro de téléphone">
             <input v-model="registerForm.adresse_mail" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
+
                 placeholder="Votre adresse email">
             <input v-model="registerForm.password" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4"
                 type="password" placeholder="Votre mot de passe">
@@ -75,7 +76,7 @@ const isRegistrationValid = computed(() => {
 });
 
 const loginForm = ref({ email: 'teddy', password: '123456' })
-const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false, })
+const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false,lieu_residence:'' })
 const isPasswordMatch = computed(() => {
   return registerForm.password === registerForm.confirmPassword;
 });
