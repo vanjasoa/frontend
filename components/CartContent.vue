@@ -7,9 +7,9 @@
                 <span class="text-green-500">{{ items.map((i) => i.point)[0] }} Point</span>
             </div>
             <div class="border-2 rounded-full w-40 flex justify-around items-center">
-                <button class="rounded-full bg-slate-200 w-8 h-8 mx-auto"> - </button>
+                <button @click="productCart.removeItem(items[0])" class="rounded-full bg-slate-200 w-8 h-8 mx-auto"> - </button>
                 <span class="text-md font-semibold mx-auto">{{ items.length }}</span>
-                <button class="rounded-full bg-black text-white w-8 h-8 mx-auto"> + </button>
+                <button @click="productCart.addItem(items[0])" class="rounded-full bg-black text-white w-8 h-8 mx-auto"> + </button>
             </div>
         </div>
     </div>
