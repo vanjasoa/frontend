@@ -103,7 +103,7 @@
         data-carousel="slide"
       >
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg ">
+        <div class="relative h-56 overflow-hidden rounded-lg dark:text-black ">
           <!-- Item 1 -->
           <div class="duration-700 ease-in-out" data-carousel-item>
             <div

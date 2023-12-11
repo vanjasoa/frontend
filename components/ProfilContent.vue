@@ -72,7 +72,7 @@
                 class="text-xs w-full text-center  text-gray-500 "
               >
                 <thead
-                  class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 "
+                  class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-50 "
                 >
                   <tr>
                     <th scope="col" class="px-1 py-3">Produit</th>
@@ -96,11 +96,11 @@
                 <tbody>
                   <tr
                     v-for="item in commande.panier"
-                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                    class="bg-white border-b dark:bg-white "
                   >
                     <th
                       scope="row"
-                      class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      class="px-1 py-4 font-medium text-gray-900 whitespace-nowrap "
                     >
                       {{ item.name }}
                     </th>
@@ -113,7 +113,7 @@
                     <td class="px-1 py-4">
                       <span
                         v-if="commande.status == 'paid'"
-                        class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300"
+                        class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full "
                       >
                         <span
                           class="w-2 h-2 me-1 bg-green-500 rounded-full"

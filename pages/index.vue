@@ -1,12 +1,14 @@
 <template>
-  <TopNavigationBar>
-    <template #logo>
-      <NuxtImg class="w-64 h-32" src="logo.png" @click="showAuth = null" />
-    </template>
-  </TopNavigationBar>
-  <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
-  <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" />
-  <ProjectDescriptionCard v-else @call-to-action="showAuth = 'register'" />
+  <div class="dark:bg-white">
+    <TopNavigationBar>
+      <template #logo>
+        <NuxtImg class="w-64 h-32" src="logo.png" @click="showAuth = null" />
+      </template>
+    </TopNavigationBar>
+    <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
+    <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" />
+    <ProjectDescriptionCard v-else @call-to-action="showAuth = 'register'" />
+  </div>
   <Footer/>
 </template>
 

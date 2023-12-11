@@ -7,9 +7,12 @@
 
     </div> -->
     <div class=" font-poppins">
-        <div class="">
+        <div class="flex flex-col items-center">
 
             <div class="  text-center p-1 border-black rounded-lg  shadow-md   " style="border-width: 1px;" >
+                <div class="">
+                    <slot  name="point" />
+                </div>
                 <NuxtImg class="w-full rounded-md  h-36" :src="img(props.product.image)"/>
                 <div class="m-1">
                     <p class=" font-bold text-xs">{{ props.product.name }}</p>
@@ -18,9 +21,9 @@
                 <button class="  bg-black text-white text-xs font-bold rounded-md  p-2 " @click="emit('addProduct',product)">Ajouter au panier</button>
                 
             </div>
-            <div class="-mt-80 ml-20 absolute ">
-                    <slot name="point" />
-            </div>
+            <!-- <div class="-mt-80 ml-20 absolute ">
+                    
+            </div> -->
 
         </div>
 
