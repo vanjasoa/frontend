@@ -1,5 +1,6 @@
 <template>
-    <div class="font-poppins text-center">
+    <div class="font-poppins text-center dark:text-black">
+
         <div v-if="props.showAuth === 'login'" class="flex flex-col m-8 text-sm ">
             <h6 class="font-extrabold text-xl mx-auto mt-4 mb-4">Bienvenue</h6>
             <p class=" text-gray-600 text-xs  my-2">
@@ -20,8 +21,8 @@
             <button @click="emit('connexion', loginForm)"
                 class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">Se Connecter</button>
         </div>
+        <div v-if="props.showAuth === 'register'" class="flex flex-col m-8 text-center dark:bg-white ">
 
-        <div v-if="props.showAuth === 'register'" class="flex flex-col m-8 text-center">
             <h1 class="font-bold text-xl mx-auto">Commencez</h1>
             <p class="text-xs mx-auto my-1 text-gray-600">
                 Remplissez les champs ci-dessous pour vous inscrire.
@@ -47,7 +48,8 @@
                 placeholder="Ressaisir votre mot de passe">
             <div class="flex justify-between w-full">
                 <div>
-                    <input v-model="registerForm.acceptTerms" class="mt-4" type="checkbox">
+                    <input v-model="registerForm.acceptTerms" class="mt-4 dark:bg-white" type="checkbox">
+
                     <span class="font-bold text-xs m-1 mt-4">J’accepte les Termes et Conditions</span>
                 </div>
 

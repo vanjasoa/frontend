@@ -1,6 +1,6 @@
 <template>
   <div v-if="props.name === 'Profil'"></div>
-  <div v-else class=" flex flex-col items-center ">
+  <div v-else class=" flex flex-col items-center dark:bg-dark ">
     <div class="w-56 relative z-20 ">
       <svg viewBox="0 0 370 340" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="shadow-2xl"

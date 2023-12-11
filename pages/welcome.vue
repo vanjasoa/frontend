@@ -1,5 +1,6 @@
 <template>
-  <div class=" flex flex-col text-center font-poppins h-screen">
+  <div class=" flex flex-col text-center font-poppins h-screen dark:bg-white dark:text-black">
+
     <div class="fixed top-0  w-full z-40">
       <MainNavigationBar>
         <template #logo>
@@ -11,7 +12,9 @@
         </template>
       </MainNavigationBar>
     </div>
-    <div class="mt-48 sm:mt-72 ">
+
+    <div class="mt-48 sm:mt-72 dark:bg-white ">
+
       <MenuList v-if="showContent === null">
         <template #menulist>
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
@@ -27,6 +30,7 @@
       <div v-else>
 
         <CollectContent v-if="itemsMenu[showContent].title == 'Je collecte'">
+      
           <template #retour>
               <button @click="showContent = null" :name="itemsMenu[showContent].title"><img src="../assets/images/jecollecte.png" alt=""></button>
           </template>
@@ -69,20 +73,17 @@
 
               </template>
             </LevelsCard>
-
             <RewardsModal v-if="selectedCategory">
               <template #modal>
-                <ProductCard v-for="product in getProductsByCategory(selectedCategory)" :product="product"
+                <ProductCard class="mt-12" v-for="product in getProductsByCategory(selectedCategory)" :product="product"
                   @add-product="addProduct">
                   <template #point>
-                    <PointButton :point="product.point" />
+                    <PointButton class="-mt-12" :point="product.point" />
                   </template>
                 </ProductCard>
               </template>
             </RewardsModal>
-
-
-            <button v-if="selectedCategory" @click="selectedCategory = null">retour rewards</button>
+            <BackCategoryButton v-if="selectedCategory" @click="selectedCategory = null"></BackCategoryButton>
           </template>
         </RewardsContent>
 
@@ -118,9 +119,10 @@
         </button>
       </template>
       <template #cart>
-        <CartContent :point="user.point" :productCart="cart" @saveCart="sendCart" />
+        <CartContent :title="title_cart" :page="title_cart" :point="user.point" :productCart="cart" @saveCart="sendCart" />
       </template>
     </CartModal>
+  
 
 
 
@@ -254,7 +256,6 @@ const addProduct = (item) => {
 
 const toggleCart = () => {
   showCart.value = !showCart.value;
-  console.log(showContent.value)
 
   if (showContent.value === 1) {
     title_cart.value = 'collecter'
