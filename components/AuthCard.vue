@@ -19,7 +19,7 @@
                 <a href="#" class="text-xs">Mot de passe oublié ?</a>
             </div>
             <button @click="emit('connexion', loginForm)"
-                class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">Se Connecter</button>
+                class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">{{ props.isLoading ? 'Connexion en cours...' : 'Se Connecter' }}</button>
         </div>
         <div v-if="props.showAuth === 'register'" class="flex flex-col m-8 text-center dark:bg-white ">
 
@@ -60,14 +60,14 @@
             :disabled="!isRegistrationValid || !registerForm.acceptTerms"
                 class="w-full p-2 rounded-md text-white mt-4 mb-6 font-bold 
                      bg-[#E61B21] hover:bg-[#D21018] disabled:bg-gray-400 
-                     disabled:cursor-not-allowed">S’inscrire</button>
+                     disabled:cursor-not-allowed">{{ props.isLoading ? 'Inscription en cours...' : 'S’inscrire' }}</button>
                      <p v-if="!isPasswordMatch" class="text-red-500 text-xs">Les mots de passe ne correspondent pas.</p>
         </div>
     </div>
 </template>
 
 <script setup>
-const props = defineProps(['showAuth'])
+const props = defineProps(['showAuth','isLoading'])
 const emit = defineEmits(['connexion', 'register'])
 
 const isRegistrationValid = computed(() => {
