@@ -81,7 +81,7 @@
         </ul>
       <span class="text-xs text-gray-500 sm:text-center "
         >© 2023
-        <a href="https://flowbite.com/" class="hover:underline"
+        <a href="https://www.lagastronomiepizza.com/" class="hover:underline"
           >GastronomiePizza</a
         >. Tous droits réservé.</span
       >

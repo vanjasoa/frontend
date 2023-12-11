@@ -3,6 +3,7 @@
         <div class="w-full  bg-white h-12 border-2 border-black rounded-lg flex justify-around lg:w-64">
             <button @click="showLogin" :class="{ 'bg-black text-white p-2 m-1 transition-shadow delay-500 rounded-md': activeTab === 'login' }" class="font-bold text-black " >CONNEXION</button>
             <button @click="showRegister" :class="{ 'bg-black text-white p-2 m-1 transition-shadow delay-500 rounded-md': activeTab === 'register' }" class="font-bold text-black" >INSCRIPTION</button>
+
         </div>
     </div>
 </template>
