@@ -40,7 +40,7 @@
             <input v-model="registerForm.phone_number" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
                 placeholder="Votre numéro de téléphone">
             <input v-model="registerForm.lieu_residence" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
-                placeholder="Votre numéro de téléphone">
+                placeholder="Votre lieu de residence">
             <input v-model="registerForm.adresse_mail" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
 
                 placeholder="Votre adresse email">
