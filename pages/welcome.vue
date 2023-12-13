@@ -184,9 +184,9 @@ const selectedCategory = ref(null);
 
 
 const rewardLevels = [
-  { name: 'FastoPRIME', pointsRequired: 50, categories: ['glace', 'jus'] },
-  { name: 'El gourmet', pointsRequired: 75, categories: ['fastfood', 'glace', 'jus'] },
-  { name: 'Miam Master', pointsRequired: 100, categories: ['pizza', 'fastfood', 'glace', 'jus'] },
+  { name: 'FastoPRIME', pointsRequired: 15, categories: ['glace', 'jus'] },
+  { name: 'El GOURMET', pointsRequired: 26, categories: ['fastfood', 'glace', 'jus'] },
+  { name: 'Miam MASTERS', pointsRequired: 100, categories: ['pizza', 'fastfood', 'glace', 'jus'] },
 ];
 
 const deconnecter = async () => {

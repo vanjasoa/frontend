@@ -6,7 +6,7 @@
       </template>
     </TopNavigationBar>
     <AuthButton @login="showAuth = 'login'" @register="showAuth = 'register'" />
-    <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" />
+    <AuthCard v-if="showAuth" :show-auth="showAuth" @connexion="onSubmit" @register="onRegister" :is-loading="isLoading" />
     <ProjectDescriptionCard v-else @call-to-action="showAuth = 'register'" />
   </div>
   <Footer/>
@@ -15,23 +15,27 @@
 <script setup>
 
 const showAuth = ref(null)
+const isLoading = ref(false);
 
 const { login, createUser } = useDirectusAuth();
 
 const router = useRouter();
 
 const onSubmit = async (logindata) => {
+  isLoading.value = true;
   try {
 
     await login({ email: logindata.email + '@mail.com', password: logindata.password });
     router.push('/welcome');
   } catch (e) {
     console.log(e);
+  }finally {
+    isLoading.value = false;
   }
 };
 
 const onRegister = async (registerdata) => {
-  
+  isLoading.value = true;
   try {
 
     const newUser = await createUser({ 
@@ -47,6 +51,8 @@ const onRegister = async (registerdata) => {
      });
     showAuth.value = 'login';
   } catch (e) {
+  }finally {
+    isLoading.value = false;
   }
 };
 

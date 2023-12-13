@@ -10,7 +10,7 @@
             </div>
             <div class="mt-20 text-left	 ">
                 <h1>Telephone</h1>
-                <h4 class="font-bold">+261 34 12 345 67</h4>
+                <h4 class="font-bold">+261 32 07 350 26</h4>
 
             </div>
         </div>
@@ -23,7 +23,7 @@
             </div>
             <div class="mt-6 text-left">
                 <h1>Email</h1> 
-                <h4 class="font-bold">contact@lagastronomiepizza.com</h4>
+                <h4 class="font-bold">lagastronomie.pizza@igp.com</h4>
 
             </div>
 

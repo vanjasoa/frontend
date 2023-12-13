@@ -7,12 +7,12 @@
                         <th scope="col" class=" text-center px-1 py-3">
                             Produit
                         </th>
-                        <th scope="col" class=" text-center px-1 py-3">
+                        <th v-if="page=='collecter'" scope="col" class=" text-center px-1 py-3">
                             Prix
                         </th>
-                        <!-- <th scope="col" class=" text-center px-1 py-3">
+                        <th v-if="page=='rewards'" scope="col" class=" text-center px-1 py-3">
                             Point
-                        </th> -->
+                        </th> 
                         <th scope="col" class=" text-center px-1 py-3">
                             Action
                         </th>
@@ -24,12 +24,12 @@
                         <th scope="row" class="px-2 w-2 py-4 font-medium items-center text-gray-900 whitespace-nowrap">
                             {{ name }}
                         </th>
-                        <td class="px-2 py-4">
+                        <td v-if="page=='collecter'" class="px-2 py-4">
                             <span class="text-green-500">{{ items.map((i) => i.prix)[0] }} Ariary</span>
                         </td>
-                        <!-- <td class="px-1 py-4">
+                        <td v-if="page=='rewards'" class="px-1 py-4">
                             <span class="text-green-500">{{ items.map((i) => i.point)[0] }} Point</span>
-                        </td> -->
+                        </td> 
                         <td class="px-2 py-4">
                             <div class="border-2 rounded-full w-20 flex justify-around items-center">
                                 <button @click="productCart.removeItem(items[0])"
@@ -54,12 +54,13 @@
         <div class="fixed bottom-4 bg-white w-full p-4">
 
             <div class="   border-black rounded-lg shadow-lg p-4  text-center font-poppins" style="border-width: 1px;">
-                <div class="flex justify-between">
-                    <span class="font-extrabold">Prix total{{ page }}</span>
+
+                <div v-if="page=='collecter'" class="flex justify-between">
+                    <span class="font-extrabold">Prix total  {{ page }}</span>
                     <span class="text-green-500 font-extrabold text-xl">{{ productCart.items.map((p) => p.prix).reduce((acc,
                         curr) => acc + curr, 0) }} Ariary</span>
                 </div>
-                <div class="flex justify-between mt-2">
+                <div v-if="page=='rewards'" class="flex justify-between mt-2">
                     <span class="font-extrabold">Total points</span>
                     <span class="text-green-500 font-extrabold text-xl">{{ productCart.items.map((p) =>
                         p.point).reduce((acc,

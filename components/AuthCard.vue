@@ -19,7 +19,7 @@
                 <a href="#" class="text-xs">Mot de passe oublié ?</a>
             </div>
             <button @click="emit('connexion', loginForm)"
-                class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">Se Connecter</button>
+                class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">{{ props.isLoading ? 'Connexion en cours...' : 'Se Connecter' }}</button>
         </div>
         <div v-if="props.showAuth === 'register'" class="flex flex-col m-8 text-center dark:bg-white ">
 
@@ -39,6 +39,8 @@
             </div>
             <input v-model="registerForm.phone_number" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
                 placeholder="Votre numéro de téléphone">
+            <input v-model="registerForm.lieu_residence" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
+                placeholder="Votre lieu de residence">
             <input v-model="registerForm.adresse_mail" class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4" type="text"
 
                 placeholder="Votre adresse email">
@@ -58,14 +60,14 @@
             :disabled="!isRegistrationValid || !registerForm.acceptTerms"
                 class="w-full p-2 rounded-md text-white mt-4 mb-6 font-bold 
                      bg-[#E61B21] hover:bg-[#D21018] disabled:bg-gray-400 
-                     disabled:cursor-not-allowed">S’inscrire</button>
+                     disabled:cursor-not-allowed">{{ props.isLoading ? 'Inscription en cours...' : 'S’inscrire' }}</button>
                      <p v-if="!isPasswordMatch" class="text-red-500 text-xs">Les mots de passe ne correspondent pas.</p>
         </div>
     </div>
 </template>
 
 <script setup>
-const props = defineProps(['showAuth'])
+const props = defineProps(['showAuth','isLoading'])
 const emit = defineEmits(['connexion', 'register'])
 
 const isRegistrationValid = computed(() => {
@@ -77,7 +79,7 @@ const isRegistrationValid = computed(() => {
   );
 });
 
-const loginForm = ref({ email: 'teddy', password: '123456' })
+const loginForm = ref({ email: '', password: '' })
 const registerForm = ref({ email: '', password: '',confirmPassword:'',first_name: '',last_name: '',phone_number:'',adresse_mail:'',date_de_naissance: '',acceptTerms: false,lieu_residence:'' })
 const isPasswordMatch = computed(() => {
   return registerForm.password === registerForm.confirmPassword;

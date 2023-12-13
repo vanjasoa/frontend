@@ -84,10 +84,10 @@
         </defs>
       </svg>
     </div>
+    
     <div class="flex flex-col items-center ">
         <img  class=" w-full md:w-96" src="../assets/images/landing.png" alt="" />
     </div>
-    
 
     <button
       @click="emit('call-to-action')"
@@ -95,8 +95,7 @@
     >
       Inscrivez-vous dès maintenant
     </button>
-
-    <div class=" -mt-12 h-40">
+    <div class="  h-40">
       <div
         id="controls-carousel "
         class="relative w-full"
@@ -140,10 +139,6 @@
             />
           </svg>
           <span class="sr-only">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
         class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-carousel-next
       >

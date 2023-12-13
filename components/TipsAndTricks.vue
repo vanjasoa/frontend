@@ -43,7 +43,5 @@
         <div class="text-center ">
             <button class="bg-white text-black p-4 rounded-md font-bold pl-20 pr-20">Voir les avantages</button>
             <p class="mt-6 text-red-600">e</p>
-
         </div>
-    </div>
 </template>
