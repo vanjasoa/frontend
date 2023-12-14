@@ -14,6 +14,7 @@
     </div>
 
     <div class="mt-48 sm:mt-72 dark:bg-white ">
+      <button class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded" @click="LoadPage">Doublez vos délices, doublez vos points!</button>
 
       <MenuList v-if="showContent === null">
         <template #menulist>
@@ -144,7 +145,9 @@ definePageMeta({
   middleware: ["auth"]
 })
 
-const { logout } = useDirectusAuth();
+//const { fetchUser, setUser } = useDirectusAuth();
+
+const { logout, fetchUser } = useDirectusAuth();
 const user = useDirectusUser();
 const router = useRouter();
 const { getItems, createItems } = useDirectusItems();
@@ -273,6 +276,11 @@ const ProfilShow = () => {
   showContent.value = 3
 }
 
+const LoadPage = async () => {
+  await fetchUser();
+  //setUser(user.value);
+}
+
 fetchProducts()
 fetchCommande()
 
@@ -283,6 +291,19 @@ watchEffect(() => {
     selectedCategory.value = null
   }
 });
+onMounted(() => {
+  window.addEventListener('beforeunload', handleBeforeUnload);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('beforeunload', handleBeforeUnload);
+});
+
+const handleBeforeUnload = (event) => {
+  const message = "Êtes-vous sûr de vouloir quitter? Les données non enregistrées seront perdues.";
+  event.returnValue = message; // Standard pour la plupart des navigateurs
+  return message; // Nécessaire pour certains navigateurs plus anciens
+};
 
 // // Appeler la fonction de rafraîchissement toutes les 10 secondes
 // const refreshIntervalId = setInterval(() => {
