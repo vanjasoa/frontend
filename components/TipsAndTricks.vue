@@ -1,6 +1,6 @@
 <template>
     <div class="bg-red-600  font-poppins">
-        <div class="m-10 text-red-600"><h1>test</h1></div>
+        <div class=" text-red-600"><h1>test</h1></div>
         <div class="flex flex-col items-center">
             <div class=" ">
             <img src="../assets/images/avantage.png" class="w-40  object-cover" alt="">
@@ -40,6 +40,12 @@
                 </span>
             </button>
         </div>
+        <!-- <div class="text-center ">
+            <NuxtLink  to="/Advantages" >
+                <button class="bg-white text-black p-4 rounded-md font-bold pl-20 pr-20">Voir les avantages</button>
+            </NuxtLink>
 
+            <p class="mt-6 text-red-600">e</p>
+        </div> -->
     </div>
 </template>

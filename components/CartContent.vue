@@ -54,8 +54,9 @@
         <div class="fixed bottom-4 bg-white w-full p-4">
 
             <div class="   border-black rounded-lg shadow-lg p-4  text-center font-poppins" style="border-width: 1px;">
+
                 <div v-if="page=='collecter'" class="flex justify-between">
-                    <span class="font-extrabold">Prix total {{ page }}</span>
+                    <span class="font-extrabold">Prix total  {{ page }}</span>
                     <span class="text-green-500 font-extrabold text-xl">{{ productCart.items.map((p) => p.prix).reduce((acc,
                         curr) => acc + curr, 0) }} Ariary</span>
                 </div>
