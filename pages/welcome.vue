@@ -14,10 +14,11 @@
     </div>
 
     <div class="mt-48 sm:mt-72 dark:bg-white ">
-      <button class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded" @click="LoadPage">Doublez vos délices, doublez vos points!</button>
-
+      
+      <button v-if="showContent === null" class="bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded" @click="LoadPage">Doublez vos délices, doublez vos points!</button>
       <MenuList v-if="showContent === null">
         <template #menulist>
+          
           <MenuButton v-for="(item, index) in itemsMenu" :key="index" :name="item.title" @click="showContent = index"
             :color="item.color" />
         </template>
