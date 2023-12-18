@@ -27,11 +27,17 @@ const validate = ref([])
 const onSubmit = async (logindata) => {
   isLoading.value = true;
   try {
-    await login({ email: logindata.email + '@mail.com', password: logindata.password });
-    router.push('/welcome');
+    await login({ email: logindata.email.trim() + '@mail.com', password: logindata.password });
+    router.push('/welcome')
   } catch (e) {
-    console.log(e);
-  } 
+    if (logindata.email.trim() == '' && logindata.password == '') {
+      validate.value['authError'] = 'Login et mot de passe requise.'
+      isLoading.value = false;
+    } else {
+      validate.value['authError'] = 'Mot de passe ou login incorrect.'
+      isLoading.value = false;
+    }
+  }
 };
 const onRegister = async (registerdata) => {
   const regexPhone = /^0\d{9}$/;
@@ -45,14 +51,14 @@ const onRegister = async (registerdata) => {
         validate.value['first_name'] = 'Prenoms invalide ou vide. Ex: Randria'
       }
     } else {
-      delete validate.value['first_name'] 
+      delete validate.value['first_name']
     }
     if (!regexName.test(registerdata.last_name)) {
       if (validate.value["last_name"] == undefined) {
         validate.value['last_name'] = 'Nom invalide ou vide. Ex: Tefy Niaina'
       }
     } else {
-      delete validate.value['last_name'] 
+      delete validate.value['last_name']
     }
 
     if (!regexPseudo.test(registerdata.email)) {
@@ -60,7 +66,7 @@ const onRegister = async (registerdata) => {
         validate.value['pseudo'] = 'Pseudo invalide ou vide. Ex: andy'
       }
     } else {
-      delete validate.value['pseudo'] 
+      delete validate.value['pseudo']
     }
     if (!regexPassword.test(registerdata.password)) {
       if (validate.value["password"] == undefined) {
@@ -74,7 +80,7 @@ const onRegister = async (registerdata) => {
         validate.value['phone_number'] = 'Contact incorrect ou vide. Ex: 0334456789'
       }
     } else {
-      delete validate.value['phone_number'] 
+      delete validate.value['phone_number']
     }
     if (!regexPassword.test(registerdata.confirmPassword)) {
       if (validate.value["confirmPassword"] == undefined) {
@@ -88,9 +94,9 @@ const onRegister = async (registerdata) => {
       }
     }
     if (Object.keys(validate.value).length === 0) {
-        isLoading.value = true;
-        const newUser = await createUser({
-        email: registerdata.email+'@mail.com',
+      isLoading.value = true;
+      const newUser = await createUser({
+        email: registerdata.email + '@mail.com',
         password: registerdata.password,
         role: 'f8fc491a-643b-47fd-a929-18b4c6b35a17',
         last_name: registerdata.last_name,
@@ -100,14 +106,13 @@ const onRegister = async (registerdata) => {
         date_de_naissance: registerdata.date_de_naissance,
         lieu_residence: registerdata.lieu_residence
       });
-      await login({ email: registerdata.email+'@mail.com', password: registerdata.password });
-        router.push('/welcome');
-        
+      await login({ email: registerdata.email + '@mail.com', password: registerdata.password });
+      router.push('/welcome');
     }
   } catch (e) {
     console.log(e)
   } finally {
-    
+
   }
 };
 

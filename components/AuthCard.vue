@@ -12,6 +12,7 @@
             <input name="password" v-model="loginForm.password"
                 class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs my-2"
                 type="password" placeholder="Votre mot de passe">
+            <span class="text-xs text-red-500">{{ listError['authError'] }}</span>
             <div class="flex justify-between w-full my-4">
                 <div>
                     <input class=" mx-1" type="checkbox">
@@ -21,7 +22,7 @@
                 <a href="#" class="text-xs">Mot de passe oublié ?</a>
             </div>
             <button @click="emit('connexion', loginForm)"
-                class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">{{ props.isLoading ? 'Connexion en cours...' : 'Se Connecter' }}</button>
+                class="w-full  bg-[#E61B21]  mt-4 mb-8 rounded-md text-white p-2 font-bold ">{{ props.isLoading ? 'Connexionen cours...' : 'Se Connecter' }}</button>
         </div>
         <div v-if="props.showAuth === 'register'" class="flex flex-col m-8 text-center dark:bg-white ">
 
@@ -59,8 +60,8 @@
             <span class="text-xs text-red-500">{{ listError['email'] }}</span>
             <input v-model="registerForm.password"
                 class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4"
-                type="password" placeholder="Votre mot de passe">  
-                <span class="text-xs text-red-500">{{ listError['password'] }}</span>
+                type="password" placeholder="Votre mot de passe">
+            <span class="text-xs text-red-500">{{ listError['password'] }}</span>
             <input v-model="registerForm.confirmPassword"
                 class="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 text-xs mt-4"
                 type="password" placeholder="Ressaisir votre mot de passe">
@@ -68,7 +69,7 @@
             <div class="flex justify-between w-full">
                 <div>
                     <input v-model="registerForm.acceptTerms" class="mt-4 dark:bg-white" type="checkbox">
-                    <span class="font-bold text-xs m-1 mt-4">J’accepte les Termes et Conditions</span>  
+                    <span class="font-bold text-xs m-1 mt-4">J’accepte les Termes et Conditions</span>
                 </div>
             </div>
             <button @click="sendDataRegister" :disabled="isRegistrationValid && !registerForm.acceptTerms" class="w-full p-2 rounded-md text-white mt-4 mb-6 font-bold 
